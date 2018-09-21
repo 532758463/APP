@@ -4,30 +4,29 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>管理员登录</title>
+	<title>用户登录</title>
 	<link rel="stylesheet" href="/layui/css/layui.css">
 	<link rel="stylesheet" href="/css/login.css">
 </head>
 
 <body>
-	
+
 	<div class="layui-container">
-			
 		<form class="layui-form" action="" id="loginform">
-			
+
 			<!-- 账号 密码 -->
 			<!-- <div class="layui-container logincontent" > -->
 				<div class="layui-form-item">
 					<label class="layui-form-label info">账号<span class="cue">*</span></label>
-					<div class="layui-input-inline myinput">
-						<input type="text" name="aname" required lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input">
+					<div class="layui-input-inline">
+						<input type="text" name="username" required lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input">
 					</div>
 					<div class="layui-form-mid layui-word-aux cue"></div>
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label info">密码<span class="cue">*</span></label>
 					<div class="layui-input-inline">
-						<input type="password" name="apasswd" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+						<input type="password" name="upasswd" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
 					</div>
 					<div class="layui-form-mid layui-word-aux cue"></div>
 				</div>
@@ -38,14 +37,14 @@
 					<div class="layui-input-inline">
 						<input type="text" name="coder" required lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
 					</div>
-					<div class="layui-form-mid layui-word-aux cue">999</div>
+					<div class="layui-form-mid layui-word-aux cue">111</div>
 				</div>
 				<div class="coderimg">
-					<div class="layui-form-mid layui-word-aux coder ">
+					<div class="layui-form-mid layui-word-aux coder">
 						<img src="/coder" alt="" id="coder">
 					</div>
 				</div>
-				
+
 
 				<!-- 提交 -->
 				<div class="layui-form-item">
@@ -54,16 +53,16 @@
 						<!-- <button type="reset" class="layui-btn layui-btn-primary">重置</button> -->
 					</div>
 				</div>
-			<!-- </div> -->
-		
-			
+			</div>
 		</form>
 	</div>
 
 
+
+
 	<script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
 	<script src="/layui/layui.all.js"></script>
-	<script src="/js/login.js"></script>
+	<script src="/js/userlogin.js"></script>
 
 </body>
 

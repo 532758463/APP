@@ -1,0 +1,192 @@
+.layui-container>.layui-row {
+    width: 100%;
+
+}
+
+
+.layui-row>div {
+    height: 80px;
+    /* background-color: skyblue; */
+    /* border-bottom: 1px solid #e6e6e6;  */
+}
+
+.layui-row #logoW {
+    line-height: 80px;
+    font-size: 32px;
+    color: #495a70;
+}
+
+.layui-row .mysearch {
+    margin-top: 20px;
+    width: 320px;
+    height: 40px;
+    padding: 0 10px 0 18px;
+    border: 2px solid #668b94;
+    /* border-right: none; */
+    /* border-radius:100px; */
+    /* background: 0 0; */
+    position: relative;
+}
+
+.mysearch input {
+    outline: 0;
+    border: none;
+}
+
+.mysearch #searchW {
+    padding-left: 0px 10px;
+    ;
+}
+
+.person>ul {
+    float: right;
+    line-height: 80px;
+}
+
+.person>ul>li {
+    float: left;
+    margin-left: 20px;
+}
+
+#myheader>img {
+    width: 36px;
+    height: 36px;
+}
+
+.search_btn {
+    width: 40px;
+    height: 40px;
+    /* background-color: rgb(218, 114, 114); */
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 0px;
+    padding: 0px 12px;
+}
+
+.font_pic {
+    font-size: 30px;
+    color: #ffffff;
+}
+
+.floor {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.floor:hover {
+    color: #fff;
+    border: 1px solid #ed4259;
+    background: #ed4259;
+}
+
+.floor a:hover {
+    color: #fff;
+}
+
+
+/* 分类导航 */
+.allnav {
+    background-color: #3e3d43;
+}
+
+.allnav .layui-nav-item a {
+    color: #fff;
+    ;
+    font-size: 16px;
+}
+
+.firstli {
+    margin-right: 50px;
+}
+
+/* 侧边导航 */
+.aside_nav {
+    position: relative;
+    top: 0px;
+    width: 200px;
+    height: 420px;
+    border: 1px solid #e6e6e6;
+    border-top: none;
+}
+
+.aside_nav dd {
+    float: left;
+    width: 50%;
+    height: 60px;
+    background: #f7f6f2;
+}
+
+.aside_nav dd div {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 85px;
+    height: 43px;
+    padding-top: 17px;
+    padding-left: 17px;
+}
+
+.aside_nav dd a {
+    font-size: 16px;
+}
+
+.aside_nav .even {
+    background: #fcfcfa;
+}
+
+/* 轮播 */
+#curle {
+    margin: 10px;
+}
+
+#curle carousel-item {
+    width: 800px;
+    height: 240px;
+
+}
+
+
+.imgaes li {
+    float: left;
+}
+
+.imgaes li:hover {
+    z-index: 2;
+    box-shadow: 0 5px 16px #d9d4c7;
+}
+
+.imgaes li {
+    position: relative;
+    z-index: 1;
+    float: left;
+    overflow: hidden;
+    width: 33.33%;
+    height: 160px;
+    transition: box-shadow .5s;
+    text-align: center;
+    background: url("/img/bg1.png") no-repeat center;
+}
+
+/*右边栏 */
+.hot {
+    position: relative;
+    width: 200px;
+    height: 248px;
+    margin-bottom: 10px;
+    text-align: center;
+    border: 1px solid #e6e6e6;
+    background: #fcfcfa;
+
+}
+
+.hot h3 {
+    margin: 10px auto;
+}
