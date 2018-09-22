@@ -16,7 +16,10 @@ const app = express();
 let secret = 'sports.app.myweb.www';
 
 //启用中间件
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({
+extended:true
+}));
+
 app.use(cookieParser(secret));
 
 //模板引擎设置
@@ -28,25 +31,24 @@ app.set('views','./views');
 global.conn = mysql.createConnection({
     host:'localhost',
     user:'root',
-    password:'jian5802',
+    password:'',
     port:3306,
     database:'novelapp'
 });
 conn.connect();
 
-//启用session
-app.use(session({
-    secret:secret,
-    resave:true,
-    saveUninitialized:true,
-    cookie:{maxAge:30*24*3600*1000}
-}));
 
 
-//文件上传
-const diskstorage = multer.diskStorage({
-    //路径
-    destination:function(req,file,cb){
+// 启用session
+// app.use(session({
+//     secret:secret,
+//     resvae:true,
+//     saveUninitialized:true,
+//     cookie:{maxAge:30*24*3600*1000}
+// }))
+// 上传文件的文件夹设置
+const storage = multer.diskStorage({
+    destination: function(req,file,cb){
         cb(null, `./uploads/${new Date().getFullYear()}/${(new Date().getMonth()+1).toString().padStart(2, '0')}`);
     },
     //文件名
@@ -54,36 +56,25 @@ const diskstorage = multer.diskStorage({
         let filename = new Date().valueOf() + '_' +  Math.random().toString().substr(2, 8) + '.' + file.originalname.split('.').pop();
         cb(null, filename);
     }
-});
-const upload = multer({storage:diskstorage});
-
-//验证码图片
-app.get('/coder',(req,res)=>{
-    var captcha = svgCaptcha.create({noise:4,ignoreChars: '0o1i', size:1,background: '#cc9966',height:38, width:90});
-	req.session.coder = captcha.text;
-	
-	res.type('svg'); // 使用ejs等模板时如果报错 res.type('html')
-	res.status(200).send(captcha.data);
+})
+global.upload = multer({
+    storage: storage
 });
 
-//上传图片接口
-app.post('/uploads',upload.array('images',1000),(req,res)=>{
-    console.log(req.files);
-    let data = [];
-    for (const ad of req.files) {
-        //把反斜线转成斜线，防止各种转义引起的路径错误
-        let path = hostname +  ad.path.replace(/\\/g, '/');
-        data.push(path);
-    }
-    res.json({
-        "errno": 0,
-        "data": data
-    });
+// 
+app.get('/admin',(req,res)=>{
+    res.render('admin/addNovel')
+})
+app.post('/upload', upload.single('images'), (req, res) => {
+    console.log(req.body);
+    console.log(req.file);
+    res.json(req.file);
 });
 
 
 //子路由
 //管理员登录
+app.use('/admin', require('./module/admin/admin'))
 app.use('/admin/login',require('./module/admin/login'));
 
 
@@ -93,7 +84,5 @@ app.use('/admin/login',require('./module/admin/login'));
 //静态资源托管
 app.use('/uploads',express.static('uploads'));
 app.use(express.static('static'));
-
-app.listen(8088,()=>{
-    console.log('服务器启动成功...');
-});
+app.use('/uploads',express.static('uploads'));
+app.listen(81);

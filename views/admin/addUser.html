@@ -1,0 +1,61 @@
+<% include head.html%>
+<div class="layui-body">
+<form class="layui-form" style="width:80%;">
+		<div class="layui-form-item">
+			<label class="layui-form-label">登录名</label>
+			<div class="layui-input-block">
+				<input type="text" class="layui-input userName" lay-verify="required" placeholder="请输入登录名">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">邮箱</label>
+			<div class="layui-input-block">
+				<input type="text" class="layui-input userEmail" lay-verify="email" placeholder="请输入邮箱">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-inline">
+			    <label class="layui-form-label">性别</label>
+			    <div class="layui-input-block userSex">
+			      	<input type="radio" name="sex" value="男" title="男" checked=""><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i><span>男</span></div>
+			      	<input type="radio" name="sex" value="女" title="女"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>女</span></div>
+			      	<input type="radio" name="sex" value="保密" title="保密"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>保密</span></div>
+			    </div>
+		    </div>
+		    <div class="layui-inline">
+			    <label class="layui-form-label">会员等级</label>
+				<div class="layui-input-block">
+					<select name="userGrade" class="userGrade" lay-filter="userGrade">
+						<option value="0">注册会员</option>
+						<option value="1">中级会员</option>
+				        <option value="2">高级会员</option>
+				        <option value="3">超级会员</option>
+				    </select><div class="layui-unselect layui-form-select"><div class="layui-select-title"><input type="text" placeholder="注册会员" value="注册会员" readonly="" class="layui-input layui-unselect"><i class="layui-edge"></i></div><dl class="layui-anim layui-anim-upbit"><dd lay-value="0" class="layui-this">注册会员</dd><dd lay-value="1" class="">中级会员</dd><dd lay-value="2" class="">高级会员</dd><dd lay-value="3" class="">超级会员</dd></dl></div>
+				</div>
+		    </div>
+		    <div class="layui-inline">
+			    <label class="layui-form-label">会员状态</label>
+				<div class="layui-input-block">
+					<select name="userStatus" class="userStatus" lay-filter="userStatus">
+						<option value="0">正常使用</option>
+						<option value="1">限制用户</option>
+				    </select><div class="layui-unselect layui-form-select"><div class="layui-select-title"><input type="text" placeholder="正常使用" value="正常使用" readonly="" class="layui-input layui-unselect"><i class="layui-edge"></i></div><dl class="layui-anim layui-anim-upbit"><dd lay-value="0" class="layui-this">正常使用</dd><dd lay-value="1" class="">限制用户</dd></dl></div>
+				</div>
+		    </div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">站点描述</label>
+			<div class="layui-input-block">
+				<textarea placeholder="个性签名" class="layui-textarea linksDesc"></textarea>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button class="layui-btn" lay-submit="" lay-filter="addUser">立即提交</button>
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		    </div>
+		</div>
+    </form>
+</div>
+<script src="/js/uploads.js"></script>
+<% include foot.html%> 

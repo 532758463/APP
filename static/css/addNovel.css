@@ -1,0 +1,8 @@
+.addCenter{
+    position: relative;
+    top: 3%;
+    left: 10%;
+}
+.addCenter input{
+    width: 400px;
+}
