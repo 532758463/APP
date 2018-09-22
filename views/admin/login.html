@@ -1,70 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>管理员登录</title>
-	<link rel="stylesheet" href="/layui/css/layui.css">
-	<link rel="stylesheet" href="/css/login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>管理员登录</title>
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 
 <body>
-	
-	<div class="layui-container">
-			
-		<form class="layui-form" action="" id="loginform">
-			
-			<!-- 账号 密码 -->
-			<!-- <div class="layui-container logincontent" > -->
-				<div class="layui-form-item">
-					<label class="layui-form-label info">账号<span class="cue">*</span></label>
-					<div class="layui-input-inline myinput">
-						<input type="text" name="aname" required lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input">
-					</div>
-					<div class="layui-form-mid layui-word-aux cue"></div>
-				</div>
-				<div class="layui-form-item">
-					<label class="layui-form-label info">密码<span class="cue">*</span></label>
-					<div class="layui-input-inline">
-						<input type="password" name="apasswd" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
-					</div>
-					<div class="layui-form-mid layui-word-aux cue"></div>
-				</div>
 
-				<!-- 验证码 -->
-				<div class="layui-form-item">
-					<label class="layui-form-label info">验证码<span class="cue">*</span></label>
-					<div class="layui-input-inline">
-						<input type="text" name="coder" required lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
-					</div>
-					<div class="layui-form-mid layui-word-aux cue">999</div>
-				</div>
-				<div class="coderimg">
-					<div class="layui-form-mid layui-word-aux coder ">
-						<img src="/coder" alt="" id="coder">
-					</div>
-				</div>
-				
+    <video class="video-player" preload="auto" autoplay="autoplay" loop="loop" data-height="1080" data-width="1920"
+        height="1080" width="1920">
+        <source src="/css/login.mp4" type="video/mp4">
+        <!-- 此视频文件为支付宝所有，在此仅供样式参考，如用到商业用途，请自行更换为其他视频或图片，否则造成的任何问题使用者本人承担，谢谢 -->
+    </video>
 
-				<!-- 提交 -->
-				<div class="layui-form-item">
-					<div class="layui-input-block">
-						<button class="layui-btn btoon" type="button" lay-submit lay-filter="formDemo">立即提交</button>
-						<!-- <button type="reset" class="layui-btn layui-btn-primary">重置</button> -->
-					</div>
-				</div>
-			<!-- </div> -->
-		
-			
+    <div class="login">
+	    <h1>管理员登录</h1>
+	    <form class="layui-form" id="adminlogin">
+	    	<div class="layui-form-item">
+                <input class="layui-input" name="aname" placeholder="用户名" lay-verify="required" type="text" autocomplete="off">
+                <!-- <a href="#" method="confirmTm" class="layui-btn">配置一个透明的询问框</a> -->
+		    </div>
+		    <div class="layui-form-item">
+				<input class="layui-input" name="apasswd" placeholder="密码" lay-verify="required" type="password" autocomplete="off">
+		    </div>
+		    <div class="layui-form-item form_code">
+				<input class="layui-input" name="coder" placeholder="验证码" lay-verify="required" type="text" autocomplete="off">
+				<div class="code"><img src="/coder" width="116" height="36" id="coderimg"></div>
+		    </div>
+			<div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn admin-login" type="button" lay-submit lay-filter="login">登录</button>
+                </div>
+            </div>
 		</form>
 	</div>
-
-
-	<script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
-	<script src="/layui/layui.all.js"></script>
-	<script src="/js/login.js"></script>
-
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/layui/layui.all.js"></script>
+    <script src="/js/admin/login.js"></script>
 </body>
 
 </html>
