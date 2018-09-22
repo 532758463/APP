@@ -45,7 +45,7 @@
 		</div>
 		<!-- 导航 -->
 		<ul class="layui-nav allnav" lay-filter="">
-			<li class="layui-nav-item layui-this firstli"><a href="javascript:;">全部分类</a>
+			<li class="layui-nav-item firstli"><a href="javascript:;">作品分类</a>
 			<li class="layui-nav-item"><a href="">全部作品</a></li>
 			<li class="layui-nav-item"><a href="">排行</a></li>
 			<li class="layui-nav-item"><a href="">完本</a></li>
@@ -55,7 +55,7 @@
 		<!-- 主内容 -->
 		<div class="layui-row">
 			<!-- 侧栏 -->
-			<div class="layui-col-xs6 layui-col-sm6 layui-col-md2 aside_nav">
+			<div class="layui-col-md2 aside_nav">
 				<dl>
 					<dd>
 						<a>
@@ -160,14 +160,18 @@
 				</dl>
 			</div>
 			<!-- 轮播 -->
-			<div class="layui-col-xs6 layui-col-sm6 layui-col-md8">
+			<div class="layui-col-md8 curle_pic">
 				<div class="layui-carousel" id="curle">
 					<div carousel-item>
-						<div><img src="/img/0.jpg" alt=""></div>
+						<div class="one">1</div>
+						<div class="two">2</div>
+						<div class="three">3</div>
+
+						<!-- <div><img src="/img/0.jpg" alt=""></div>
 						<div><img src="/img/1.jpg" alt=""></div>
 						<div><img src="/img/2.jpg" alt=""></div>
 						<div><img src="/img/3.jpg" alt=""></div>
-						<div><img src="/img/4.jpg" alt=""></div>
+						<div><img src="/img/4.jpg" alt=""></div> -->
 					</div>
 				</div>
 				<ul class="imgaes">
@@ -179,25 +183,24 @@
 					<li><img src="/img/bg2-1.png" alt=""></li>
 					<li><img src="/img/bg3-1.png" alt=""></li>
 				</ul>
-			
-
 			</div>
-			<div class="layui-col-xs4 layui-col-sm12 layui-col-md2">
+			<!-- 右边栏 -->
+			<div class="layui-col-md2">
 				<div class="hot">
 					<h3>热门推荐</h3>
-					<div>
-						<ul>
-							<li><a href="#">[资讯]沉默的糕点新书上线</a></li>
-							<li><a href="#">[资讯]沉默的糕点新书上线</a></li>
-							<li><a href="#">[资讯]沉默的糕点新书上线</a></li>
-							<li><a href="#">[资讯]沉默的糕点新书上线</a></li>
-						</ul>
+					<ul>
+						<li><a href="#">[资讯]沉默的糕点新书上线</a></li>
+						<li><a href="#">[资讯]沉默的糕点新书上线</a></li>
+						<li><a href="#">[资讯]沉默的糕点新书上线</a></li>
+						<li><a href="#">[资讯]沉默的糕点新书上线</a></li>
+						<li><a href="#">[资讯]沉默的糕点新书上线</a></li>
+						<li><a href="#">[资讯]沉默的糕点新书上线</a></li>
+					</ul>
+					<div class="ad">
+						<img src="/img/ad.jpg" alt="">
 					</div>
 				</div>
 			</div>
-
-
-
 		</div>
 	</div>
 	<script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>

@@ -95,16 +95,24 @@
 /* 分类导航 */
 .allnav {
     background-color: #3e3d43;
+    padding: 0px;
+}
+
+.allnav>li:hover {
+    background-color: #262626;
+    border-top: 2px solid #ed4259;
 }
 
 .allnav .layui-nav-item a {
     color: #fff;
-    ;
     font-size: 16px;
 }
 
 .firstli {
+    width: 200px;
     margin-right: 50px;
+    background-color: #313035;
+    text-align: center;
 }
 
 /* 侧边导航 */
@@ -143,6 +151,11 @@
 }
 
 /* 轮播 */
+.curle_pic {
+    width: 710px;
+}
+
+
 #curle {
     margin: 10px;
 }
@@ -153,9 +166,17 @@
 
 }
 
-
-.imgaes li {
-    float: left;
+#curle .carousel-item .one{
+    background-image: url('/img/0.jpg');
+    background-position: center;
+}
+#curle .carousel-item .two{
+    background-image: url('/img/1.jpg');
+    background-position: center;
+}
+#curle .carousel-item .three{
+    background-image: url('/img/2.jpg');
+    background-position: center;
 }
 
 .imgaes li:hover {
@@ -178,8 +199,10 @@
 /*右边栏 */
 .hot {
     position: relative;
-    width: 200px;
-    height: 248px;
+    width: 208px;
+    height: 278px;
+    top: 10px;
+    left: 20px;
     margin-bottom: 10px;
     text-align: center;
     border: 1px solid #e6e6e6;
@@ -189,4 +212,23 @@
 
 .hot h3 {
     margin: 10px auto;
+    font-weight: 700;
+}
+
+.hot li {
+    margin: 10px;
+}
+
+.hot li a {
+    color:#262626;
+    font-size: 15px;
+}
+
+.ad img {
+    width: 208px;
+    margin-top: 70px;
+    /* margin: 20px; */
+    /* position: relative;
+    top: 20px; */
+  
 }

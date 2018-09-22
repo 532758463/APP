@@ -85,10 +85,11 @@ app.post('/uploads',upload.array('images',1000),(req,res)=>{
 //子路由
 //管理员登录
 app.use('/admin/login',require('./module/admin/login'));
+// 用户登录
+app.use('/login', require('./module/user/login'));
 
-
-
-
+// 用户操作
+app.use('/',require('./module/user/index'));
 
 //静态资源托管
 app.use('/uploads',express.static('uploads'));

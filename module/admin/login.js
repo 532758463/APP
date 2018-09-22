@@ -1,8 +1,8 @@
-const express = require('express');
-const router = express.Router();
-//管理员登录  各种路由处理
-router.get('/', (req, res)=>{
-    // console.log('2');
+const express=require('express');
+const router=express.Router();
+
+//登录页面
+router.get('/',(req,res)=>{
     res.render('admin/login');
 });
 
@@ -42,4 +42,6 @@ router.post('/',(req,res)=>{
 	
 })
 
-module.exports = router;
+
+//导出模块
+module.exports=router;
