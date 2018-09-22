@@ -1,0 +1,85 @@
+<% include head.html%>
+<div class="layui-body">
+
+    <blockquote class="layui-elem-quote news_search">
+        <div class="layui-inline">
+            <div class="layui-input-inline">
+                <input type="text" value="" placeholder="请输入关键字" class="layui-input search_input">
+            </div>
+            <a class="layui-btn search_btn">查询</a>
+        </div>
+        <div class="layui-inline">
+            <a class="layui-btn layui-btn-normal newsAdd_btn">添加文章</a>
+        </div>
+        <div class="layui-inline">
+            <a class="layui-btn recommend" style="background-color:#5FB878">推荐文章</a>
+        </div>
+        <div class="layui-inline">
+            <a class="layui-btn audit_btn">章节管理</a>
+        </div>
+        <div class="layui-inline">
+            <a class="layui-btn layui-btn-danger batchDel">批量删除</a>
+        </div>
+        <div class="layui-inline">
+            <div class="layui-form-mid layui-word-aux">本页面刷新后除新添加的文章外所有操作无效，关闭页面所有数据重置</div>
+        </div>
+    </blockquote>
+    <div class="layui-form news_list">
+        <table class="layui-table">
+            <colgroup>
+                 <col >
+                <col width="9%"> 
+                <col width="9%">
+                <col width="40%">
+                <col width="9%">
+                <col width="9%">
+                <col width="9%">
+                <col width="15%">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose" id="allChoose">
+                        <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon"></i></div>
+                    </th>
+                    <th style="text-align:left;">小说名字</th>
+                    <th style="text-align:center;">作者</th>
+                    <th style="text-align:center;">描述</th>
+                    <th>字数</th>
+                    <th>是否展示</th>
+                    <th>发布时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody class="news_content">
+                
+                <tr>
+                    <td><input type="checkbox" name="checked" lay-skin="primary" lay-filter="choose">
+                        <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon"></i></div>
+                    </td>
+                    <td align="left">css3用transition实现边框动画效果</td>
+                    <td>请叫我马哥</td>
+                    <td>审核通过</td>
+                    <td>开放浏览</td>
+                    <td><input type="checkbox" name="show" lay-skin="switch" lay-text="是|否" lay-filter="isShow">
+                        <div class="layui-unselect layui-form-switch" lay-skin="_switch"><em>否</em><i></i></div>
+                    </td>
+                    <td>2017-04-14</td>
+                    <td>
+                        <a class="layui-btn layui-btn-mini  layui-btn-sm news_edit">
+                        <i class="iconfont icon-edit"></i> 编辑</a>
+                        <a class="layui-btn layui-btn-normal layui-btn-mini layui-btn-sm news_collect">
+                            <i class="layui-icon"></i> 删除
+                        </a></td>
+                </tr>
+               
+            </tbody>
+        </table>
+    </div>
+    <div id="page">
+        <div class="layui-box layui-laypage layui-laypage-default" id="layui-laypage-0"><span class="layui-laypage-curr"><em
+                    class="layui-laypage-em"></em><em>1</em></span><a href="javascript:;" data-page="2">2</a><a href="javascript:;"
+                data-page="3">3</a><a href="javascript:;" class="layui-laypage-next" data-page="2">下一页</a></div>
+    </div>
+
+</div>
+<% include foot.html%>
