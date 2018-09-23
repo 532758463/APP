@@ -32,9 +32,20 @@
 </div>
 <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/layui/layui.all.js"></script>
-<!-- <script src="/js/updateNovel.js"></script> -->
-<!-- <script src="/layui/layui.js"></script>  -->
+<script src="/js/updateNovel.js"></script>
 
+<!-- <script src="/layui/layui.js"></script>  -->
+<script>
+    //Demo
+layui.use('form', function(){
+  var form = layui.form;
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+    layer.msg(JSON.stringify(data.field));
+    return false;
+  });
+});
+</script>
 
 </body>
 

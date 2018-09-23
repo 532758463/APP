@@ -1,25 +1,25 @@
 <% include head.html%>
-  <div class="layui-body">
-    <blockquote class="layui-elem-quote news_search">
-      <div class="layui-inline">
-          <div class="layui-input-inline">
-            <input type="text" value="" placeholder="请输入关键字" class="layui-input search_input">
-          </div>
-          <a class="layui-btn search_btn">查询</a>
-      </div>
-      <div class="layui-inline">
-        <a class="layui-btn layui-btn-normal usersAdd_btn">添加用户</a>
-      </div>
-      <div class="layui-inline">
-        <a class="layui-btn layui-btn-danger batchDel">批量删除</a>
-      </div>
-      <div class="layui-inline">
-        <div class="layui-form-mid layui-word-aux">　</div>
-      </div>
-    </blockquote>
-    <div class="layui-form users_list">
-	  	<table class="layui-table">
-		    <colgroup>
+<div class="layui-body">
+	<blockquote class="layui-elem-quote news_search">
+		<div class="layui-inline">
+			<div class="layui-input-inline">
+				<input type="text" value="" placeholder="请输入关键字" class="layui-input search_input">
+			</div>
+			<a class="layui-btn search_btn">查询</a>
+		</div>
+		<div class="layui-inline">
+			<a class="layui-btn layui-btn-normal usersAdd_btn">添加用户</a>
+		</div>
+		<div class="layui-inline">
+			<a class="layui-btn layui-btn-danger batchDel">批量删除</a>
+		</div>
+		<div class="layui-inline">
+			<div class="layui-form-mid layui-word-aux">　</div>
+		</div>
+	</blockquote>
+	<div class="layui-form users_list">
+		<table class="layui-table">
+			<colgroup>
 				<col width="50">
 				<col>
 				<col width="18%">
@@ -28,22 +28,45 @@
 				<col width="12%">
 				<col width="18%">
 				<col width="15%">
-		    </colgroup>
-		    <thead>
+			</colgroup>
+			<thead>
 				<tr>
-					<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose" id="allChoose"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon"></i></div></th>
-					<th>登录名</th>
-					<th>邮箱</th>
+					<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose" id="allChoose">
+						<div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon"></i></div>
+					</th>
+					<th>用户名</th>
+					<th>电话</th>
 					<th>性别</th>
 					<th>会员等级</th>
 					<th>会员状态</th>
 					<th>最后登录时间</th>
 					<th>操作</th>
-				</tr> 
-		    </thead>
-		    <tbody class="users_content"><tr><td><input type="checkbox" name="checked" lay-skin="primary" lay-filter="choose"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon"></i></div></td><td>贤心</td><td>xianxin@layui.com</td><td>男</td><td>高级会员</td><td>正常使用</td><td>2017-05-14 15:35</td><td><a class="layui-btn layui-btn-mini users_edit"><i class="iconfont icon-edit"></i> 编辑</a><a class="layui-btn layui-btn-danger layui-btn-mini users_del" data-id="1"><i class="layui-icon"></i> 删除</a></td></tr><tr><td><input type="checkbox" name="checked" lay-skin="primary" lay-filter="choose"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon"></i></div></td><td>纸飞机</td><td>fly@layui.com</td><td>男</td><td>高级会员</td><td>正常使用</td><td>2017-05-14 16:25</td><td><a class="layui-btn layui-btn-mini users_edit"><i class="iconfont icon-edit"></i> 编辑</a><a class="layui-btn layui-btn-danger layui-btn-mini users_del" data-id="2"><i class="layui-icon"></i> 删除</a></td></tr><tr><td><input type="checkbox" name="checked" lay-skin="primary" lay-filter="choose"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon"></i></div></td><td>请叫我马哥</td><td>mage@layui.com</td><td>男</td><td>超级会员</td><td>正常使用</td><td>2017-05-10 10:30</td><td><a class="layui-btn layui-btn-mini users_edit"><i class="iconfont icon-edit"></i> 编辑</a><a class="layui-btn layui-btn-danger layui-btn-mini users_del" data-id="3"><i class="layui-icon"></i> 删除</a></td></tr></tbody>
+				</tr>
+			</thead>
+			<tbody class="users_content">
+				<% for(let u of user){%> 
+				<tr>
+					<td><input type="checkbox" name="checked" lay-skin="primary" lay-filter="choose">
+						<div class="layui-unselect layui-form-checkbox" lay-skin="primary">
+							<i class="layui-icon"></i></div>
+					</td>
+					<td><%=u.username%></td>
+					<td><%=u.tel%></td>
+					<td><%=u.sex%></td>
+					<td><%=u.selfdes%></td>
+					<td><%=u.status%></td>
+					<td><%=u.utime%></td>
+					<td>
+						<a class="layui-btn layui-btn-mini layui-btn-sm users_edit">
+							<i class="iconfont icon-edit"></i> 编辑</a>
+						<a class="layui-btn layui-btn-danger delete layui-btn-mini users_del layui-btn-sm" data-id="1" uid="<%=u.uid%>">
+							<i class="layui-icon"></i> 删除</a>
+					</td>
+				</tr>
+			<%}%>
+			</tbody>
 		</table>
-  </div>
-  <div id="page"></div>
-  </div>
+	</div>
+	<div id="page"></div>
+</div>
 <% include foot.html%>

@@ -62,7 +62,7 @@ global.upload = multer({
 });
 
 // 
-app.get('/admin',(req,res)=>{
+app.get('/admin', (req, res) => {
     res.render('admin/addNovel')
 })
 app.post('/upload', upload.single('images'), (req, res) => {
