@@ -2,59 +2,89 @@
 <div class="layui-body">
 <form class="layui-form" style="width:80%;">
 		<div class="layui-form-item">
-			<label class="layui-form-label">登录名</label>
+			<label class="layui-form-label">章节标题</label>
 			<div class="layui-input-block">
-				<input type="text" class="layui-input userName" lay-verify="required" placeholder="请输入登录名">
-			</div>
-		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">邮箱</label>
-			<div class="layui-input-block">
-				<input type="text" class="layui-input userEmail" lay-verify="email" placeholder="请输入邮箱">
+				<input type="text" class="layui-input newsName" lay-verify="required" placeholder="请输入文章标题">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<div class="layui-inline">
-			    <label class="layui-form-label">性别</label>
-			    <div class="layui-input-block userSex">
-			      	<input type="radio" name="sex" value="男" title="男" checked=""><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i><span>男</span></div>
-			      	<input type="radio" name="sex" value="女" title="女"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>女</span></div>
-			      	<input type="radio" name="sex" value="保密" title="保密"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>保密</span></div>
-			    </div>
-		    </div>
-		    <div class="layui-inline">
-			    <label class="layui-form-label">会员等级</label>
+				<label class="layui-form-label">自定义属性</label>
 				<div class="layui-input-block">
-					<select name="userGrade" class="userGrade" lay-filter="userGrade">
-						<option value="0">注册会员</option>
-						<option value="1">中级会员</option>
-				        <option value="2">高级会员</option>
-				        <option value="3">超级会员</option>
-				    </select><div class="layui-unselect layui-form-select"><div class="layui-select-title"><input type="text" placeholder="注册会员" value="注册会员" readonly="" class="layui-input layui-unselect"><i class="layui-edge"></i></div><dl class="layui-anim layui-anim-upbit"><dd lay-value="0" class="layui-this">注册会员</dd><dd lay-value="1" class="">中级会员</dd><dd lay-value="2" class="">高级会员</dd><dd lay-value="3" class="">超级会员</dd></dl></div>
+					<input type="checkbox" name="tuijian" class="tuijian" title="推荐">
+					<div class="layui-unselect layui-form-checkbox" lay-skin=""><span>推荐</span><i class="layui-icon"></i></div>
+					<input type="checkbox" name="shenhe" class="newsStatus" title="审核">
+					<div class="layui-unselect layui-form-checkbox" lay-skin=""><span>审核</span><i class="layui-icon"></i></div>
+					<input type="checkbox" name="show" class="isShow" title="展示">
+					<div class="layui-unselect layui-form-checkbox" lay-skin=""><span>展示</span><i class="layui-icon"></i></div>
 				</div>
-		    </div>
-		    <div class="layui-inline">
-			    <label class="layui-form-label">会员状态</label>
-				<div class="layui-input-block">
-					<select name="userStatus" class="userStatus" lay-filter="userStatus">
-						<option value="0">正常使用</option>
-						<option value="1">限制用户</option>
-				    </select><div class="layui-unselect layui-form-select"><div class="layui-select-title"><input type="text" placeholder="正常使用" value="正常使用" readonly="" class="layui-input layui-unselect"><i class="layui-edge"></i></div><dl class="layui-anim layui-anim-upbit"><dd lay-value="0" class="layui-this">正常使用</dd><dd lay-value="1" class="">限制用户</dd></dl></div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">作者</label>
+				<div class="layui-input-inline">
+					<input type="text" class="layui-input newsAuthor" lay-verify="required" placeholder="请输入文章作者">
 				</div>
-		    </div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">发布时间</label>
+				<div class="layui-input-inline">
+					<input type="text" class="layui-input newsTime" lay-verify="required|date" onclick="layui.laydate({elem:this})">
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">浏览权限</label>
+				<div class="layui-input-inline">
+					<select name="browseLook" class="newsLook" lay-filter="browseLook">
+						<option value="0">开放浏览</option>
+						<option value="1">会员浏览</option>
+					</select>
+					<div class="layui-unselect layui-form-select">
+						<div class="layui-select-title"><input type="text" placeholder="开放浏览" value="开放浏览" readonly="" class="layui-input layui-unselect"><i
+							 class="layui-edge"></i></div>
+						<dl class="layui-anim layui-anim-upbit">
+							<dd lay-value="0" class="layui-this">开放浏览</dd>
+							<dd lay-value="1" class="">会员浏览</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label">站点描述</label>
+			<label class="layui-form-label">关键字</label>
 			<div class="layui-input-block">
-				<textarea placeholder="个性签名" class="layui-textarea linksDesc"></textarea>
+				<input type="text" class="layui-input" placeholder="请输入文章关键字">
+			</div>
+		</div>
+		<label class="layui-form-label">章节内容</label>
+		<div class="layui-form-item">
+				
+			<div id="editor">
+				<!-- <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p> -->
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<div class="layui-input-block">
-				<button class="layui-btn" lay-submit="" lay-filter="addUser">立即提交</button>
+				<button class="layui-btn" lay-submit="" id='btn2' lay-filter="addNews">立即提交</button>
 				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
-		    </div>
+			</div>
 		</div>
-    </form>
+
+	</form>
+
+
+
+
+
 </div>
-<% include foot.html%> 
+<script src="http://unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+<script type="text/javascript">
+	var E = window.wangEditor
+	var editor = new E('#editor');
+	// 或者 var editor = new E( document.getElementById('editor') )
+	document.getElementById('btn2').addEventListener('click', function () {
+        // 读取 text
+        alert(editor.txt.text())
+    }, false)
+	editor.create();
+</script>
+<% include foot.html%>

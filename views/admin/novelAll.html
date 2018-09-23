@@ -51,27 +51,27 @@
                 </tr>
             </thead>
             <tbody class="news_content">
-                
+                <% for (let c of novelAll){%>
                 <tr>
                     <td><input type="checkbox" name="checked" lay-skin="primary" lay-filter="choose">
                         <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon"></i></div>
                     </td>
-                    <td align="left">css3用transition实现边框动画效果</td>
-                    <td>请叫我马哥</td>
-                    <td>审核通过</td>
-                    <td>开放浏览</td>
+                    <td align="left"><%=c.bname%></td>
+                    <td><%=c.author%></td>
+                    <td><%=c.describe%></td>
+                    <td><%=c.wordnum%></td>
                     <td><input type="checkbox" name="show" lay-skin="switch" lay-text="是|否" lay-filter="isShow">
                         <div class="layui-unselect layui-form-switch" lay-skin="_switch"><em>否</em><i></i></div>
                     </td>
                     <td>2017-04-14</td>
                     <td>
-                        <a class="layui-btn layui-btn-mini  layui-btn-sm news_edit">
-                        <i class="iconfont icon-edit"></i> 编辑</a>
-                        <a class="layui-btn layui-btn-normal layui-btn-mini layui-btn-sm news_collect">
-                            <i class="layui-icon"></i> 删除
+                        <a class="layui-btn layui-btn-mini listChapter layui-btn-sm news_edit"  bid="<%=c.bid %>">
+                            <i class="iconfont icon-edit"></i> 编辑</a>
+                        <a class="layui-btn layui-btn-normal delete  layui-btn-mini layui-btn-sm news_collect" bid="<%=c.bid%>">
+                             删除
                         </a></td>
                 </tr>
-               
+                <%}%>
             </tbody>
         </table>
     </div>
