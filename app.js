@@ -1,4 +1,4 @@
-//ÒıÈë¸÷ÖÖÄ£¿é
+//Ã’Ã½ÃˆÃ«Â¸Ã·Ã–Ã–Ã„Â£Â¿Ã©
 
 const express = require('express');
 const ejs = require('ejs');
@@ -10,24 +10,24 @@ global.md5 = require('md5');
 const svgCaptcha = require('svg-captcha');
 const multer = require('multer');
 
-// Ä£¿éÒıÓÃ²¿·Ö½áÊøÎ»ÖÃ
+// Ã„Â£Â¿Ã©Ã’Ã½Ã“ÃƒÂ²Â¿Â·Ã–Â½Ã¡ÃŠÃ¸ÃÂ»Ã–Ãƒ
 const app = express();
-//¶¨Òå¸÷ÖÖ²ÎÊı
+//Â¶Â¨Ã’Ã¥Â¸Ã·Ã–Ã–Â²ÃÃŠÃ½
 let secret = 'sports.app.myweb.www';
 
-//ÆôÓÃÖĞ¼ä¼ş
+//Ã†Ã´Ã“ÃƒÃ–ÃÂ¼Ã¤Â¼Ã¾
 app.use(bodyParser.urlencoded({
 extended:true
 }));
 
 app.use(cookieParser(secret));
 
-//Ä£°åÒıÇæÉèÖÃ
+//Ã„Â£Â°Ã¥Ã’Ã½Ã‡Ã¦Ã‰Ã¨Ã–Ãƒ
 app.engine('html',ejs.renderFile);
 app.set('view engine','html');
 app.set('views','./views');
 
-//Êı¾İ¿âÁ¬½Ó
+//ÃŠÃ½Â¾ÃÂ¿Ã¢ÃÂ¬Â½Ã“
 global.conn = mysql.createConnection({
     host:'localhost',
     user:'root',
@@ -39,19 +39,19 @@ conn.connect();
 
 
 
-// ÆôÓÃsession
+// Ã†Ã´Ã“Ãƒsession
 // app.use(session({
 //     secret:secret,
 //     resvae:true,
 //     saveUninitialized:true,
 //     cookie:{maxAge:30*24*3600*1000}
 // }))
-// ÉÏ´«ÎÄ¼şµÄÎÄ¼ş¼ĞÉèÖÃ
+// Ã‰ÃÂ´Â«ÃÃ„Â¼Ã¾ÂµÃ„ÃÃ„Â¼Ã¾Â¼ÃÃ‰Ã¨Ã–Ãƒ
 const storage = multer.diskStorage({
     destination: function(req,file,cb){
         cb(null, `./uploads/${new Date().getFullYear()}/${(new Date().getMonth()+1).toString().padStart(2, '0')}`);
     },
-    //ÎÄ¼şÃû
+    //ÃÃ„Â¼Ã¾ÃƒÃ»
     filename: function (req, file, cb) {
         let filename = new Date().valueOf() + '_' +  Math.random().toString().substr(2, 8) + '.' + file.originalname.split('.').pop();
         cb(null, filename);
@@ -65,6 +65,14 @@ global.upload = multer({
 app.get('/admin',(req,res)=>{
     res.render('admin/addNovel')
 })
+
+//éªŒè¯ç å›¾ç‰‡
+app.get('/coder',(req,res)=>{
+    var captcha = svgCaptcha.create({noise:4,ignoreChars: '0o1i', size:4,background: '#cc9966',height:38, width:90});
+	req.session.coder = captcha.text;
+    res.type('svg');
+	res.status(200).send(captcha.data);
+});
 app.post('/upload', upload.single('images'), (req, res) => {
     console.log(req.body);
     console.log(req.file);
@@ -72,17 +80,19 @@ app.post('/upload', upload.single('images'), (req, res) => {
 });
 
 
-//×ÓÂ·ÓÉ
-//¹ÜÀíÔ±µÇÂ¼
+/
 app.use('/admin', require('./module/admin/admin'))
 app.use('/admin/login',require('./module/admin/login'));
-// ÓÃ»§µÇÂ¼
+// 
 app.use('/login', require('./module/user/login'));
 
-// ÓÃ»§²Ù×÷
+//ç”¨æˆ·ç™»å½•
+app.use('/user/login',require('./module/user/login'));
+
+// 
 app.use('/',require('./module/user/index'));
 
-//¾²Ì¬×ÊÔ´ÍĞ¹Ü
+//
 app.use('/uploads',express.static('uploads'));
 app.use(express.static('static'));
 app.use('/uploads',express.static('uploads'));

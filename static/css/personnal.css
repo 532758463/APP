@@ -1,0 +1,13 @@
+#form input {
+    width: 500px;
+}
+#form .text{
+    width: 500px;
+}
+
+#form .head{
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}

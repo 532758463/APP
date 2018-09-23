@@ -7,3 +7,16 @@ body{overflow:hidden;}
 .form_code{ position:relative; }
 .form_code .code{ position:absolute; right:0; top:1px; cursor:pointer; }
 .login_btn{ width:100%; }
+
+#userlogin .user-login-register{
+    /* background-color: red; */
+    position: relative;
+}
+#userlogin .user-login{
+    position: absolute;
+    left: 0px;
+}
+#userlogin .user-register{
+    position: absolute;
+    right: 0px;
+}

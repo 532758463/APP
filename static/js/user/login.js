@@ -5,13 +5,13 @@ $(function () {
         $(this).attr('src', '/coder?' + new Date());
     });
 
-    //管理员登录
+    //用户登录
     form.on('submit(login)',function(data){
         $.ajax({
             url:'login',
             type:'POST',
             dataType:'json',
-            data:$('#adminlogin').serialize(),
+            data:$('#userlogin').serialize(),
             // data:data.field,
             success:function(result){
                 console.log(result);
@@ -30,7 +30,7 @@ $(function () {
                       return;
                 }
                 if(result.r=='ok'){
-                    window.location.href = '/admin';
+                    window.location.href = '/user';
                 }
             }
         });

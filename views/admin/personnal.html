@@ -1,6 +1,61 @@
 <% include head.html%>
 <div class="layui-body">
- 
+    <form class="layui-form" action="" lay-filter="example" id="form">
+        <div class="layui-form-item">
+            <label class="layui-form-label">头像:</label>
+            <div class="layui-input-block head">
+                <label class="header" for="images">
+                    <img src="/img/2.jpg" alt="" id="img">
+                </label>
+                <input type="file" multiple name="images" id="images" style="display:none">
+                <input type="hidden" value="" id="imgval">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">账号</label>
+            <div class="layui-input-block">
+                <input type="text" name="aname" lay-verify="title" autocomplete="off" placeholder="修改账号" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">密码</label>
+            <div class="layui-input-block">
+                <input type="password" name="apasswd" placeholder="修改密码" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">电话</label>
+            <div class="layui-input-block">
+                <input type="text" name="tel" lay-verify="title" autocomplete="off" placeholder="修改电话" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">性别</label>
+            <div class="layui-input-block">
+                <input type="radio" name="sex" value="男" title="男" checked="">
+                <div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i>
+                    <div>男</div>
+                </div>
+                <input type="radio" name="sex" value="女" title="女">
+                <div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i>
+                    <div>女</div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">自我描述</label>
+            <div class="layui-input-block">
+                <textarea placeholder="请输入内容" class="layui-textarea text" name="selfdes"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+            </div>
+        </div>
+    </form>
 
 </div>
 <% include foot.html%>
