@@ -82,8 +82,12 @@ app.use('/login', require('./module/user/login'));
 // 用户操作
 app.use('/',require('./module/user/index'));
 
+app.use('/user',require('./module/user/person'));
 //静态资源托管
 app.use('/uploads',express.static('uploads'));
+app.get('/person',(req,res)=>{
+	res.render('./user/person.html');
+})
 app.use(express.static('static'));
 app.use('/uploads',express.static('uploads'));
 app.listen(81);

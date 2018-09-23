@@ -12,10 +12,9 @@ $(function () {
   });
 
 
-  // 点击头像，跳转到登录界面
-  $('#myheader').click(function(){
-      window.location.href='/login'; 
-  })
-
+  // 点击头像，跳转到个人中心
+  // $('#myheader').click(function(){
+  //     window.location.href='../../views/user/personinfo.html'; 
+  // })
 
 })
