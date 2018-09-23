@@ -42,10 +42,10 @@
             <label class="layui-form-label">封面:</label>
             <div class="layui-input-block">
                 <label class="header" for="images">
-                    <img src="/img/2.jpg" style="width:104px;height:140px;" alt="" id="img">
+                    <img src="/img/cover.jpg" style="width:104px;height:140px;" alt="" id="img">
                 </label>
                 <input type="file" multiple name="images" id="images" style="display:none">
-                <input type="hidden" value="" id="imgval">
+                <input type="hidden" value="" id="imgval" name='cover'>
             </div>
         </div>
 
@@ -59,7 +59,7 @@
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn formAdd" type="button" lay-filter="formDemo">立即提交</button>
+                <button class="layui-btn formAdd" type="button" lay-submit lay-filter="formDemo">立即提交</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
