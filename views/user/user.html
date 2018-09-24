@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>火柴阅读</title>
+	<link rel="stylesheet" href="/layui/css/layui.css">
+	<link rel="stylesheet" type="text/css" href="/css/index.css" />
+</head>
+
+<body>
+	<!-- 用户一登录就看见的页面 -->
+
+
+	<div class="layui-container">
+		<!-- 顶部 -->
+		<div class="layui-row">
+			<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+				<img src="" alt="">
+				<a href="#" id='logoW'>火柴阅读</a>
+			</div>
+			<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
+				<form class="layui-form mysearch" action="">
+					<input type="text" name="title" required lay-verify="required" placeholder="热门搜索" autocomplete="off" class="layui-input"
+					 id="searchW">
+					<label for="searchW" class="search_btn">
+						<button class="layui-btn search_btn">
+							<i class="layui-icon layui-icon-search font_pic"></i>
+						</button>
+
+					</label>
+				</form>
+			</div>
+			<%for(let u of userlist){%>
+			<div class="layui-col-xs4 layui-col-sm12 layui-col-md4 person">
+				<ul>
+					<li class="floor">
+						<i class="layui-icon layui-icon-read"></i>
+						<a href="" id="myself" uid='<%=u.uid%>' >我的书架</a>
+					</li>
+					<li>				
+						<a href="/user/person" id="myheader">
+							<img src="<%=u.uimg%>" alt="">
+						</a>
+					</li>
+				</ul>
+			</div>
+			<% }%>
+		</div>
+		<!-- 导航 -->
+		<ul class="layui-nav allnav" lay-filter="">
+			<li class="layui-nav-item firstli"><a href="javascript:;">作品分类</a>
+			<li class="layui-nav-item"><a href="">全部作品</a></li>
+			<li class="layui-nav-item"><a href="">排行</a></li>
+			<li class="layui-nav-item"><a href="">完本</a></li>
+			<li class="layui-nav-item"><a href="javascript:;">免费</a></li>
+			<li class="layui-nav-item"><a href="">社区</a></li>
+		</ul>
+		<!-- 主内容 -->
+		<div class="layui-row">
+			<!-- 侧栏 -->
+			<div class="layui-col-md2 aside_nav">
+				<dl>
+					<dd>
+						<a>
+							<div>
+								<span>玄幻</span>
+							</div>
+
+						</a>
+					</dd>
+					<dd>
+						<a>
+							<div>
+								<span>奇幻</span>
+							</div>
+						</a>
+					</dd>
+					<dd class="even">
+						<a>
+							<div>
+								<span>仙侠</span>
+							</div>
+						</a>
+					</dd>
+					<dd class="even">
+						<a>
+							<div>
+								<span>武侠</span>
+							</div>
+						</a>
+					</dd>
+					<dd>
+						<a>
+							<div>
+								<span>都市</span>
+							</div>
+						</a>
+					</dd>
+					<dd>
+						<a>
+							<div>
+								<span>现实</span>
+							</div>
+						</a>
+					</dd>
+					<dd class="even">
+						<a>
+							<div>
+								<span>军事</span>
+							</div>
+						</a>
+					</dd>
+					<dd class="even">
+						<a>
+							<div>
+								<span>历史</span>
+							</div>
+						</a>
+					</dd>
+					<dd>
+						<a>
+							<div>
+								<span>游戏</span>
+							</div>
+						</a>
+					</dd>
+					<dd>
+						<a>
+							<div>
+								<span>体育</span>
+							</div>
+						</a>
+					</dd>
+
+					<dd class="even">
+						<a>
+							<div>
+								<span>科幻</span>
+							</div>
+						</a>
+					</dd>
+					<dd class="even">
+						<a>
+							<div>
+								<span>灵异</span>
+							</div>
+						</a>
+					</dd>
+					<dd>
+						<a>
+							<div>
+								<span>女生网</span>
+							</div>
+						</a>
+					</dd>
+					<dd>
+						<a>
+							<div>
+								<span>二次元</span>
+							</div>
+						</a>
+					</dd>
+				</dl>
+			</div>
+			<!-- 轮播 -->
+			<div class="layui-col-md8 curle_pic">
+				<div class="layui-carousel" id="curle">
+					<div carousel-item>
+						<div class="one">1</div>
+						<div class="two">2</div>
+						<div class="three">3</div>
+					</div>
+				</div>
+				<ul class="imgaes">
+					<li class="fa">
+						<a href="#">
+							<img src="/img/bg1-1.png" alt="">
+						</a>
+					</li>
+					<li><img src="/img/bg2-1.png" alt=""></li>
+					<li><img src="/img/bg3-1.png" alt=""></li>
+				</ul>
+			</div>
+			<!-- 右边栏 -->
+			<div class="layui-col-md2">
+				<div class="hot">
+					<h3>热门推荐</h3>
+					<ul>
+						<li><a href="#">[资讯]沉默的糕点新书上线</a></li>
+						<li><a href="#">[资讯]沉默的糕点新书上线</a></li>
+						<li><a href="#">[资讯]沉默的糕点新书上线</a></li>
+						<li><a href="#">[资讯]沉默的糕点新书上线</a></li>
+						<li><a href="#">[资讯]沉默的糕点新书上线</a></li>
+						<li><a href="#">[资讯]沉默的糕点新书上线</a></li>
+					</ul>
+					<div class="ad">
+						<img src="/img/ad.jpg" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+	<script src="/layui/layui.all.js"></script>
+	<script src="/js/index.js"></script>
+	
+</body>
+
+</html>

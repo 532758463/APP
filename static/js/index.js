@@ -11,10 +11,53 @@ $(function () {
     });
   });
 
+  let uid;
 
-  // 点击头像，跳转到个人中心
-  // $('#myheader').click(function(){
-  //     window.location.href='../../views/user/personinfo.html'; 
-  // })
+  // 点击用户头像，跳转到个人中心
+  $('#myheader').click(function () {
+    uid = $('#myself').attr('uid');
+    // console.log(uid);
+    $.ajax({
+      url: '/user/person',
+      type: 'POST',
+      dataType: 'JSON',
+      data: {
+        uid: uid
+      },
+      success: function (result) {
+        if (result.r == 'success') {
+          console.log(result);
+        }
+      }
+    })
+  })
+
+  // 基本信息设置
+  $("#basic_info").click(function () {
+    $.ajax({
+      url: '/person/setinfo',
+      type: 'POST',
+      dataType: 'JSON',
+      data: $('#forminfo').serialize(),
+      success: function (result) {
+        console.log(result);
+      }
+    })
+  })
+
+  // 头像设置
+  $("#up_img").click(function () {
+    let uimg=$("#imgval").attr('value');
+    console.log(uimg);
+    $.ajax({
+      url: '/person/setheader',
+      type: 'POST',
+      dataType: 'JSON',
+      data: {uimg:uimg},
+      success: function (result) {
+        console.log(result);
+      }
+    })
+  })
 
 })
