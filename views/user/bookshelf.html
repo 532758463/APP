@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>个人中心-火柴阅读</title>
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/css/person.css">
+</head>
+
+<body>
+    <!-- 个人中心主页面 -->
+    <% for(let i of userinfo) {%>
+    <div class="layui-fluid p_nav">
+        <ul class="layui-nav">
+            <li class="layui-nav-item head_logo">
+                <a href="#">个人中心</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="">我的首页</span></a>
+            </li>
+            <li class="layui-nav-item person_bg">
+                <a href="">我的书架</span></a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="">消息中心<span class="layui-badge-dot"></span></a>
+            </li>
+            <!-- 用户个人信息 -->
+            <li class="layui-nav-item me">
+
+                <a href=""><img src="<%=i.uimg%>" class="layui-nav-img">
+                    <%=i.username%></a>
+                <dl class="layui-nav-child">
+                    <dd><a href="/person/info" uid="<%=i.uid%>" id="p_info">个人信息</a></dd>
+                    <dd><a href="/person/homepage">我的主页</a></dd>
+                    <dd><a href="javascript:;">退出</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="layui-container">
+        <!-- 搜索 -->
+        <form class="layui-form booksearch" action="">
+            <input type="text" name="bookname" required lay-verify="required" placeholder="请输入书名" autocomplete="off"
+                class="layui-input" id="searchW">
+            <label for="searchW">
+                <button class="layui-btn search_btn">
+                    <i class="layui-icon layui-icon-search font_pic"></i>
+                </button>
+            </label>
+        </form>
+        <!-- 推荐 -->
+        <div class="layui-tab">
+            <ul class="layui-tab-title">
+                <li class="layui-this">编辑推荐</li>
+                <!-- <li>用户管理</li>
+                <li>权限分配</li>
+                <li>商品管理</li>
+                <li>订单管理</li> -->
+            </ul>
+
+            <div class="layui-tab-content ">
+                <% for(let ad of adlist) {%>
+                <div class="layui-tab-item layui-show book_recomm">
+                    <ul>
+                        <li><img src="<%=ad.shelf_book%>" alt=""></li>
+                    </ul>
+                </div>
+                <%}%>
+                <!-- <div class="layui-tab-item">内容2</div>
+                <div class="layui-tab-item">内容3</div>
+                <div class="layui-tab-item">内容4</div>
+                <div class="layui-tab-item">内容5</div> -->
+            </div>
+        </div>
+        <!-- 收藏 -->
+        
+        <h2 class="shelf-title" id='mycollect'>我的收藏 </h2>
+        <table class="layui-table">
+            <colgroup>
+                <col>
+                <col width="200">
+                <col width="200">
+                <col width="200">
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th><span class="layui-badge-rim"></span></th>
+                    <th>书名</th>
+                    <th>更新时间</th>
+                    <th>作者</th>
+                    <th>简介</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <% for(let c of col_list)%>
+                <tr>
+                    <td><span class="layui-badge-rim"></span></td>
+                    <td><%= c.bname%></td>
+                    <td><%= c.time%></td>
+                    <td><%= c.author%></td>
+                    <td><%= c.describe%></td>
+                </tr>
+                <% }%>
+            </tbody>
+        </table>
+    </div>
+
+    <% } %>
+
+    <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/layui/layui.all.js"></script>
+    <script src="/js/index.js"></script>
+
+</body>
+
+</html>

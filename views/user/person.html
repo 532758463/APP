@@ -17,11 +17,11 @@
             <li class="layui-nav-item head_logo">
                 <a href="#">个人中心</a>
             </li>
-            <li class="layui-nav-item">
+            <li class="layui-nav-item person_bg">
                 <a href="">我的首页</span></a>
             </li>
             <li class="layui-nav-item">
-                <a href="">我的书架</span></a>
+                <a href="/person/bookshelf" id='shelfs'>我的书架</span></a>
             </li>
             <li class="layui-nav-item">
                 <a href="">消息中心<span class="layui-badge-dot"></span></a>
@@ -32,7 +32,7 @@
                 <a href=""><img src="<%=i.uimg%>" class="layui-nav-img"><%=i.username%></a>
                 <dl class="layui-nav-child" >
                     <dd><a href="/person/info" uid="<%=i.uid%>"  id="p_info">个人信息</a></dd>
-                    <dd><a href="javascript:;">我的主页</a></dd>
+                    <dd><a href="/person/homepage">我的主页</a></dd>
                     <dd><a href="javascript:;">退出</a></dd>
                 </dl>
             </li>

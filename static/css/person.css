@@ -1,5 +1,16 @@
 /*导航栏  */
 
+/* hover样式 */
+.layui-nav-bar {
+    width: 0px;
+    height: 0px;
+}
+
+.layui-nav-tree .layui-nav-bar {
+    width: 0px;
+    height: 0px;
+}
+
 .p_nav {
     padding: 0;
     position: relative;
@@ -17,6 +28,10 @@
     margin-right: 30px;
 }
 
+.p_nav ul li {
+    text-align:center;
+}
+
 .p_nav ul li:not(.head_logo) {
     width:120px;
     height: 70px;
@@ -31,6 +46,14 @@
 .p_nav ul li:not(.head_logo):hover{
     background-color: #262626;
     border-top: 2px solid #ed4259;
+}
+
+.layui-nav .layui-nav-item a {
+    color: #fff;
+}
+
+.layui-nav-child {
+    background-color: #3e3d43;
 }
 
 .p_nav me {
@@ -67,4 +90,169 @@
     height: 80px;
     border-radius: 50%;
     cursor: pointer;
+}
+
+#forminfo .layui-form-item{
+    margin-bottom: 24px;
+}
+
+/* 主页 */
+.home_nav {
+    width: 100%;
+    padding: 0px;
+}
+
+.home_nav .layui-nav {
+    border-radius: 0;
+}
+
+.home_nav .layui-nav .layui-nav-item {
+    line-height: 40px;
+    border-radius: 0;
+}
+
+.home_nav li:not(.home_head):hover{
+    background-color: #262626;
+    border-top: 2px solid #ed4259;
+}
+
+
+.home_head a {
+    font-size: 24px;
+    margin-left: 40px;
+}
+
+.right{
+    float: right;
+}
+
+.me {
+    margin-right:60px; 
+}
+
+/* 主页中间个人信息 */
+.user-header {
+    min-height: 200px;
+    color: #fff;
+    background: #fff url('../img/myindex-bg.png') center no-repeat;
+    /* background-size: cover; */
+    margin-top: -39px;
+}
+
+.user-header-wrapper {
+    width: 990px;
+    margin: 0 auto;
+    padding-top: 40px;
+    position: relative;
+    top: 28px;
+}
+
+.user-header img {
+    width: 100px;
+    height: 100px;
+    vertical-align: top;
+    border-radius: 50%;
+}
+
+.header-msg {
+    position: relative;
+    top: -97px;
+    left: 120px;
+}
+
+.header-msg h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.header-msg ul li {
+    padding: 1px 0 2px;
+    opacity: 0.8;
+}
+
+/* 收藏书单 */
+.collb_list {
+    width: 990px;
+    min-height: calc(100vh - 477px);
+    margin: 0 auto;
+    color: #262626;
+    font-weight: 700;
+}
+
+.no-data {
+    width: 300px;
+    margin: 10px auto 30px;
+    text-align: center;
+}
+
+.no-data .no-result-img {
+    padding: 47px 0 13px;
+}
+
+.no-data .no-result-img .no-data-img {
+    display: inline-block;
+    width: 72px;
+    height: 90px;
+    background: url('../img/myindex-bg2.png') no-repeat;
+    background-size: 100%;
+}
+
+/* 底部声明 */
+.footer {
+    font-size: 12px;
+    margin: 40px 0 0;
+    /* padding: 0 0 15px 0; */
+    text-align: center;
+    line-height: 20px;
+    color: #a6a6a6;
+}
+
+.info_foot {
+    margin-top: 130px;
+}
+
+/* 书架 */
+.person_bg {
+    background-color: #ed4259;
+}
+
+.booksearch {
+    margin: 20px;
+    position: relative;
+}
+
+.booksearch .layui-input {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.search_btn {
+    width: 60px;
+    height: 37px;
+    position: absolute;
+    top: 0px;
+    right: 351px;
+    text-align: center;
+    line-height: 37px;
+    border-radius: 2px;
+    padding: 0px 12px;
+}
+
+
+/* 书架——推荐 */
+.book_recomm ul li {
+    float: left;
+    margin: 20px 15px;
+    margin-right: 10px;
+}
+
+.book_recomm img {
+    width: 160px;
+}
+
+.shelf-title {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1;
+    color: #3e3d43;
 }

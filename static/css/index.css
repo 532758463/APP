@@ -3,11 +3,8 @@
 
 }
 
-
 .layui-row>div {
     height: 80px;
-    /* background-color: skyblue; */
-    /* border-bottom: 1px solid #e6e6e6;  */
 }
 
 .layui-row #logoW {
@@ -22,9 +19,6 @@
     height: 40px;
     padding: 0 10px 0 18px;
     border: 2px solid #668b94;
-    /* border-right: none; */
-    /* border-radius:100px; */
-    /* background: 0 0; */
     position: relative;
 }
 
@@ -35,7 +29,6 @@
 
 .mysearch #searchW {
     padding-left: 0px 10px;
-    ;
 }
 
 .person>ul {
@@ -51,6 +44,7 @@
 #myheader>img {
     width: 36px;
     height: 36px;
+    border-radius: 50%;
 }
 
 .search_btn {
@@ -93,6 +87,13 @@
 
 
 /* 分类导航 */
+
+.layui-nav-bar {
+    width: 0px;
+    height: 0px;
+}
+
+
 .allnav {
     background-color: #3e3d43;
     padding: 0px;
@@ -166,17 +167,15 @@
 
 }
 
-#curle .carousel-item .one{
-    background-image: url('/img/0.jpg');
-    background-position: center;
+.layui-carousel a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-size: auto 300px !important;
 }
-#curle .carousel-item .two{
-    background-image: url('/img/1.jpg');
-    background-position: center;
-}
-#curle .carousel-item .three{
-    background-image: url('/img/2.jpg');
-    background-position: center;
+
+.imgaes {
+    margin-left: 10px;
 }
 
 .imgaes li:hover {
@@ -220,7 +219,7 @@
 }
 
 .hot li a {
-    color:#262626;
+    color: #262626;
     font-size: 15px;
 }
 
@@ -230,7 +229,5 @@
     /* margin: 20px; */
     /* position: relative;
     top: 20px; */
-  
+
 }
-
-

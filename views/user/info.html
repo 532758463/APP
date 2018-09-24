@@ -23,17 +23,18 @@
                 <a href="">我的首页</span></a>
             </li>
             <li class="layui-nav-item">
-                <a href="">我的书架</span></a>
+                <a href="/person/bookshelf">我的书架</span></a>
             </li>
             <li class="layui-nav-item">
                 <a href="">消息中心<span class="layui-badge-dot"></span></a>
             </li>
-            <li class="layui-nav-item me">
+            <li class="layui-nav-item right">
                 <!-- 用户个人信息 -->
-                <a href=""><img src="<%=u.uimg%>" class="layui-nav-img"><%=u.username%></a>
+                <a href=""><img src="<%=u.uimg%>" class="layui-nav-img">
+                    <%=u.username%></a>
                 <dl class="layui-nav-child">
-                    <dd><a href="#">个人信息</a></dd>
-                    <dd><a href="javascript:;">我的主页</a></dd>
+                    <dd><a href="/person/info">个人信息</a></dd>
+                    <dd><a href="/person/homepage">我的主页</a></dd>
                     <dd><a href="javascript:;">退出</a></dd>
                 </dl>
             </li>
@@ -42,8 +43,9 @@
 
     <div class="layui-container bg-ad">
         <!-- 应该获取数据库渲染 -->
-        <img src="/img/bg-ad-1.jpg" alt="">
-
+        <%for(let ad of adlist) {%>
+        <img src="<%=ad.pinfo_ad%>" alt="">
+        <%}%>
         <!-- 侧边导航栏 -->
         <ul class="layui-nav layui-nav-tree aside" lay-filter="test">
             <!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
@@ -77,15 +79,16 @@
                     <a href="#">头像设置</a>
                 </li>
             </ul>
-            <div class="layui-tab-content" style="height: 358px;width: 768px;">
+            <div class="layui-tab-content" style="height: 432px;width: 768px;">
                 <!-- 个人基本设置 -->
-               
+
                 <div class="layui-tab-item layui-show">
                     <form class="layui-form" id="forminfo" action="">
                         <div class="layui-form-item">
                             <label class="layui-form-label">昵称</label>
                             <div class="layui-input-inline">
-                                <input type="text" name="username" value="<%=u.username%>" required lay-verify="required" autocomplete="off" class="layui-input" >
+                                <input type="text" name="username" value="<%=u.username%>" lay-verify="required"
+                                    autocomplete="off" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-form-item">
@@ -98,21 +101,18 @@
                         <div class="layui-form-item">
                             <label class="layui-form-label">生日</label>
                             <div class="layui-input-inline">
-                                <input type="text" name="birth" value="<%=u.birth%>" required lay-verify="required" autocomplete="off"
+                                <input type="text" name="birth" value="<%=u.birth%>" lay-verify="required" autocomplete="off"
                                     class="layui-input">
                             </div>
                         </div>
                         <div class="layui-form-item">
                             <label class="layui-form-label">地区</label>
                             <div class="layui-input-inline">
-                                <select name="address">
-                                    <option value=""><%=u.address%></option>
-                                    <option value="0">北京</option>
-                                    <option value="1">上海</option>
-                                    <option value="2">广州</option>
-                                    <option value="3">深圳</option>
-                                    <option value="4">杭州</option>
-                                </select>
+
+
+                                <input type="text" name="address" value="<%=u.address%>" lay-verify="required"
+                                    autocomplete="off" class="layui-input">
+
                             </div>
                         </div>
                         <div class="layui-form-item layui-form-text">
@@ -132,27 +132,26 @@
                 <div class="layui-tab-item">
                     <form action="" method="post" enctype="multipart/form-data" id='formheader'>
                         <label class="header" for="images">
-                            
+
                             <img src="<%=u.uimg%>" alt="" id="img">
                         </label>
                         <input type="file" multiple name="images" id="images" style="display:none">
                         <input type="hidden" value="" id="imgval">
-                      
+
                     </form>
                     <p style="font-size:16px;margin: 20px;">点击头像直接上传</p>
                     <input type="button" class="layui-btn" id="up_img" value="保存">
                 </div>
-
-                <div class="layui-tab-item">3</div>
-                <div class="layui-tab-item">4</div>
-                <div class="layui-tab-item">5</div>
-                <div class="layui-tab-item">6</div>
             </div>
+        </div>
+        <div class="layui-footer footer info_foot">
+            <!-- 底部固定区域 -->
+            <p> © 2018 - 火柴小说网 - 火柴 - 蜀ICP-201800686 联系：1526659463</p>
+            <p>请所有作者发布作品时务必遵守国家互联网信息管理办法规定，一经发现违规违纪，即作删除！</p>
+            <p>本站所收录作品、社区话题、书库评论及本站所做之广告均属其个人行为，与本站立场无关</p>
         </div>
     </div>
     <% }%>
-
-
 
     <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="/layui/layui.all.js"></script>

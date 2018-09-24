@@ -55,9 +55,22 @@ $(function () {
       dataType: 'JSON',
       data: {uimg:uimg},
       success: function (result) {
-        console.log(result);
+        window.location.reload();
       }
     })
   })
+
+  //书架 
+  // $('#shelfs').click(function(){
+  //   $.ajax({
+  //     url:'/person/bookshelf',
+  //     type: 'POST',
+  //     dataType: 'JSON',
+  //     data: {uid:uid},
+  //     success: function (result) {
+  //     console.log(result);
+  //     }
+  //   })
+  // })
 
 })
