@@ -20,7 +20,7 @@
                 <a href="">个人中心</a>
             </li>
             <li class="layui-nav-item">
-                <a href="">我的首页</span></a>
+                <a href="/user/person">我的首页</span></a>
             </li>
             <li class="layui-nav-item">
                 <a href="/person/bookshelf">我的书架</span></a>
@@ -47,29 +47,33 @@
         <img src="<%=ad.pinfo_ad%>" alt="">
         <%}%>
         <!-- 侧边导航栏 -->
-        <ul class="layui-nav layui-nav-tree aside" lay-filter="test">
-            <!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
-            <li class="layui-nav-item layui-nav-itemed">
-                <a href="javascript:;">默认展开</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="javascript:;">选项1</a></dd>
-                    <dd><a href="javascript:;">选项2</a></dd>
-                    <dd><a href="">跳转</a></dd>
-                </dl>
-            </li>
-            <li class="layui-nav-item layui-nav-itemed">
-                <a href="javascript:;">解决方案</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">移动模块</a></dd>
-                    <dd><a href="">后台模版</a></dd>
-                    <dd><a href="">电商平台</a></dd>
-                </dl>
-            </li>
-            <li class="layui-nav-item"><a href="">产品</a></li>
-            <li class="layui-nav-item"><a href="">大数据</a></li>
-        </ul>
+
+        <div class="personal-sideBar">
+            <ul>
+                <li><a href="">首页</a></li>
+                <li><a href="">账务zhongxin</a></li>
+                <li><a href="">我的票夹</a></li>
+                <li><a href="">我的红包</a></li>
+                <li><a href="">我的书评</a></li>
+            </ul>
+            <ul>
+                <li><a href="">经验值等级</a></li>
+                <li><a href="">任务</a></li>
+                <li><a href="">徽章/称号/认证</a></li>
+            </ul>
+            <ul>
+                <li><a href="">会员中心</a></li>
+                <li><a href="">安全中心</a></li>
+                <li><a href="">作家专区</a></li>
+            </ul>
+            <ul>
+                <li><a href="">红月传说</a></li>
+                <li><a href="">大皇帝</a></li>
+            </ul>
+        </div>
 
         <!-- 信息设置 -->
+        <h5 style="margin-top:-3px;">首页>个人信息设置</h5>
         <div class="layui-tab layui-tab-card setting">
             <ul class="layui-tab-title">
                 <li class="layui-this">
@@ -79,7 +83,7 @@
                     <a href="#">头像设置</a>
                 </li>
             </ul>
-            <div class="layui-tab-content" style="height: 432px;width: 768px;">
+            <div class="layui-tab-content" style="height: 480px;width: 768px;">
                 <!-- 个人基本设置 -->
 
                 <div class="layui-tab-item layui-show">
@@ -132,7 +136,6 @@
                 <div class="layui-tab-item">
                     <form action="" method="post" enctype="multipart/form-data" id='formheader'>
                         <label class="header" for="images">
-
                             <img src="<%=u.uimg%>" alt="" id="img">
                         </label>
                         <input type="file" multiple name="images" id="images" style="display:none">
@@ -144,14 +147,15 @@
                 </div>
             </div>
         </div>
-        <div class="layui-footer footer info_foot">
-            <!-- 底部固定区域 -->
-            <p> © 2018 - 火柴小说网 - 火柴 - 蜀ICP-201800686 联系：1526659463</p>
-            <p>请所有作者发布作品时务必遵守国家互联网信息管理办法规定，一经发现违规违纪，即作删除！</p>
-            <p>本站所收录作品、社区话题、书库评论及本站所做之广告均属其个人行为，与本站立场无关</p>
-        </div>
+        
     </div>
     <% }%>
+    <div class="layui-footer footer info_foot">
+        <!-- 底部固定区域 -->
+        <p> © 2018 - 火柴小说网 - 火柴 - 蜀ICP-201800686 联系：1526659463</p>
+        <p>请所有作者发布作品时务必遵守国家互联网信息管理办法规定，一经发现违规违纪，即作删除！</p>
+        <p>本站所收录作品、社区话题、书库评论及本站所做之广告均属其个人行为，与本站立场无关</p>
+    </div>
 
     <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="/layui/layui.all.js"></script>

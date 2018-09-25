@@ -22,8 +22,7 @@
 			</div>
 			<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
 				<form class="layui-form mysearch" action="">
-					<input type="text" name="title" lay-verify="required" placeholder="热门搜索" autocomplete="off" class="layui-input"
-					 id="searchW">
+					<input type="text" name="title" lay-verify="required" placeholder="热门搜索" autocomplete="off" class="layui-input" id="searchW">
 					<label for="searchW" class="search_btn">
 						<button class="layui-btn search_btn">
 							<i class="layui-icon layui-icon-search font_pic"></i>
@@ -37,7 +36,7 @@
 				<ul>
 					<li class="floor">
 						<i class="layui-icon layui-icon-read"></i>
-						<a href="" id="myself" uid='<%=u.uid%>'>我的书架</a>
+						<a href="/person/bookshelf" id="myself" uid='<%=u.uid%>'>我的书架</a>
 					</li>
 					<li>
 						<a href="/user/person" id="myheader">
@@ -172,22 +171,20 @@
 			<div class="layui-col-md8 curle_pic">
 				<div class="layui-carousel" id="curle">
 					<div carousel-item>
-						<% for(let ad of adlist) {%>
-						<div><a href="#" style="background:url('<%=ad.indx_lb%>') center top no-repeat"></a></div>
+						<% for(let i=0;i<5;i++) {%>
+						<div><a href="#" style='background:url(<%= adlist[i]["indx_lb"]%>) center top no-repeat'></a></div>
 						<%}%>
 					</div>
 				</div>
 				<ul class="imgaes">
-					<% for(let ad of adlist) {%>
+					<% for(let i=0;i<3;i++) {%>
 					<li class="">
 						<a href="#">
-							<img src="<%= ad.indx_ad%>" alt="">
+							<img src='<%= adlist[i]["indx_ad"]%>' alt="">
 						</a>
 					</li>
 					<%}%>
 
-					<!-- <li><img src="/img/bg2-1.png" alt=""></li>
-					<li><img src="/img/bg3-1.png" alt=""></li> -->
 				</ul>
 			</div>
 			<!-- 右边栏 -->
@@ -202,9 +199,11 @@
 						<li><a href="#">[资讯]沉默的糕点新书上线</a></li>
 						<li><a href="#">[资讯]沉默的糕点新书上线</a></li>
 					</ul>
+					
 					<div class="ad">
-						<img src="/img/ad.jpg" alt="">
+						<img src='<%= adlist[3]["indx_ad"]%>' alt="">
 					</div>
+				
 				</div>
 			</div>
 		</div>

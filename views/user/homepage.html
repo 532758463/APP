@@ -18,19 +18,24 @@
                 <a href="#">火柴阅读</a>
             </li>
 
-            <% for(let b of bookkinds) { %>
+            <% for(let i=0;i<7;i++) { %>
             <li class="layui-nav-item">
                 <a href="#">
-                    <%= b.kinds%></span></a>
+                    <%= bookkinds[i]['bk_kinds']%></span></a>
             </li>
             <%}%>
             <li class="layui-nav-item">
                 <a href="">更多</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="">xxxx</a></dd>
+                    <% for(let i=bookkinds.length-1;i>bookkinds.length-1-7;i--) { %>
+
+                    <dd><a href="">
+                            <%= bookkinds[i]['bk_kinds']%></a></dd>
+                    <%}%>
+
                 </dl>
             </li>
-           
+
             <!-- 用户个人信息 -->
             <li class="layui-nav-item right me">
                 <a href=""><img src="<%=i.uimg%>" class="layui-nav-img">
@@ -44,8 +49,8 @@
             <li class="layui-nav-item right">
                 <a href="" id="" uid='<%=i.uid%>'>
                     <a href="/person/bookshelf">
-                        <i class="layui-icon layui-icon-read "></i> 
-                        <span class="">我的书架</span> 
+                        <i class="layui-icon layui-icon-read "></i>
+                        <span class="">我的书架</span>
                     </a>
                 </a>
             </li>
@@ -81,23 +86,106 @@
     </div>
     <!-- 收藏书单 -->
     <div class="layui-container collb_list">
-            <h2>收藏的书单</h2>
-            <hr style="background-color:#7f7f7f;">
-            <div class="no-data">
-                <div class="no-result-img">
-                    <span class="no-data-img"></span>
-                </div>
-                <h4>该用户暂无收藏的书单</h4>
+        <h2>收藏的书单</h2>
+        <hr style="background-color:#7f7f7f;">
+
+        <!-- <table class="layui-table">
+                    <colgroup>
+                        <col width="200">
+                        <col width="200">
+                        <col width="200">
+                        <col>
+                        <col width="200">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>书名</th>
+                            <th>更新时间</th>
+                            <th>作者</th>
+                            <th>简介</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <% for(let c of col_list) {%>
+                        <tr>
+                            <td><%= c.bname%></td>
+                            <td><%= c.time.toLocaleString()%></td>
+                            <td><%= c.author%></td>
+                            <td><%= c.describe%></td>
+                            <td class="operate">
+                                <a href="###" class="delcate" id="<%=c.id%>">删除</a>                                          
+                            </td>
+                        </tr>
+                        <% }%>
+                    </tbody>
+                </table> -->
+
+        <div class="no-data">
+            <div class="no-result-img">
+                <span class="no-data-img"></span>
             </div>
+            <h4>该用户暂无收藏的书单</h4>
+        </div>
+        <h2 class="user-title user-honor">粉丝荣誉</h2>
+        <div id="elFansHonorWrap">
+            <ul class="user-honor-item ">
+                <li>
+                    <div class="user-honor-num">0</div>
+                    <div class="user-honor-title">见习</div>
+                </li>
+                <li>
+                    <div class="user-honor-num">0</div>
+                    <div class="user-honor-title">学徒</div>
+                </li>
+                <li>
+                    <div class="user-honor-num">0</div>
+                    <div class="user-honor-title">弟子</div>
+                </li>
+                <li>
+                    <div class="user-honor-num">0</div>
+                    <div class="user-honor-title">执事</div>
+                </li>
+                <li>
+                    <div class="user-honor-num">0</div>
+                    <div class="user-honor-title">舵主</div>
+                </li>
+                <li>
+                    <div class="user-honor-num">0</div>
+                    <div class="user-honor-title">堂主</div>
+                </li>
+                <li>
+                    <div class="user-honor-num">0</div>
+                    <div class="user-honor-title">护法</div>
+                </li>
+                <li>
+                    <div class="user-honor-num">0</div>
+                    <div class="user-honor-title">长老</div>
+                </li>
+                <li>
+                    <div class="user-honor-num">0</div>
+                    <div class="user-honor-title">掌门</div>
+                </li>
+                <li>
+                    <div class="user-honor-num">0</div>
+                    <div class="user-honor-title">宗师</div>
+                </li>
+                <li>
+                    <div class="user-honor-num">0</div>
+                    <div class="user-honor-title">盟主</div>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <% } %>
 
     <div class="layui-footer footer">
-            <!-- 底部固定区域 -->
-            <p> © 2018 - 火柴小说网 - 火柴 - 蜀ICP-201800686 联系：1526659463</p>
-            <p>请所有作者发布作品时务必遵守国家互联网信息管理办法规定，一经发现违规违纪，即作删除！</p>
-            <p>本站所收录作品、社区话题、书库评论及本站所做之广告均属其个人行为，与本站立场无关</p>
+        <!-- 底部固定区域 -->
+        <p> © 2018 - 火柴小说网 - 火柴 - 蜀ICP-201800686 联系：1526659463</p>
+        <p>请所有作者发布作品时务必遵守国家互联网信息管理办法规定，一经发现违规违纪，即作删除！</p>
+        <p>本站所收录作品、社区话题、书库评论及本站所做之广告均属其个人行为，与本站立场无关</p>
     </div>
     <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="/layui/layui.all.js"></script>

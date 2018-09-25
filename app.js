@@ -82,6 +82,9 @@ app.use('/admin/login',require('./module/admin/login'));
 //管理员主界面
 app.use('/admin',require('./module/admin/admin'));
 
+//主页面各种操作
+app.use('/',require('./module/user/index'));
+
 //用户登录
 app.use('/user/login',require('./module/user/login'));
 

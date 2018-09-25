@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 			res.json({
 				r: 'db_err'
 			});
-			result;
+			return;
 		}
 		data.adlist = result;
 		res.render('index', data);
@@ -34,7 +34,7 @@ router.get('/user', (req, res) => {
 			res.json({
 				r: 'db_err'
 			});
-			result;
+			return;
 		}
 		data.userlist = result;
 		res.render('./user/user', data);
@@ -42,11 +42,12 @@ router.get('/user', (req, res) => {
 })
 
 
-// 获取该用户的id
+// 获取该用户的id (应该在一登录进来就获取到)
 router.post('/user/person', (req, res) => {
 	console.log(req.body.uid);
 	uid = req.body.uid;
 })
+
 
 //跳转到用户的个人中心
 router.get('/user/person', (req, res) => {
@@ -83,7 +84,7 @@ router.post('/person/setinfo', (req, res) => {
 			res.json({
 				r: 'db_err'
 			});
-			result;
+			return;
 		}
 		res.json({
 			r: 'success'
@@ -114,14 +115,14 @@ router.post('/person/setheader', (req, res) => {
 // 我的主页 
 router.get('/person/homepage', (req, res) => {
 	// 书目
-	let sql = `SELECT * from books WHERE status=1`;
+	let sql = `SELECT * from book_kinds WHERE status=1`;
 	conn.query(sql, (err, result) => {
 		if (err) {
 			console.log(err);
 			res.json({
 				r: 'db_err'
 			});
-			result;
+			return ;
 		}
 		data.bookkinds = result;
 		res.render('./user/homepage', data);
@@ -129,19 +130,17 @@ router.get('/person/homepage', (req, res) => {
 
 })
 
-
-
 // 我的书架
 router.get('/person/bookshelf', (req, res) => {
-
-	let collect = `SELECT * FROM collection AS c INNER JOIN books AS b ON c.bid=b.bid where uid=${uid}`;
+	console.log(uid);
+	let collect = `SELECT * FROM collection AS c INNER JOIN books AS b ON c.bid=b.bid where uid=${uid} AND c.status=1`;
 	conn.query(collect, (err, results) => {
 		if (err) {
 			console.log(err);
 			res.json({
 				r: 'db_err'
 			});
-			result;
+			return;
 		}
 		data.col_list = results;
 		console.log(data);
@@ -149,6 +148,47 @@ router.get('/person/bookshelf', (req, res) => {
 	})
 
 })
+
+
+
+// 删除书单
+router.get('/person/delcate', (req, res)=>{
+    let sql = 'UPDATE collection SET status = 0 WHERE id = ? LIMIT 1';
+    conn.query(sql, req.query.id, (err, result)=>{
+        if(err){
+            console.log(err);
+            res.json({r:'db_err'});
+            return ;
+        }
+        res.json({r:'success'});
+    });
+});
+
+
+
+// 搜索书单
+router.post('/person/search_col', (req, res) => {
+	console.log(uid);
+	let d = req.body;
+	let sql = `SELECT * FROM collection AS c INNER JOIN books AS b ON c.bid=b.bid where uid=? AND c.status=1 AND bname like '%${d.bname}%' `;
+	conn.query(sql, [uid] ,(err, result) => {
+		if (err) {
+			console.log(err);
+			res.json({
+				r: 'db_err'
+			});
+			return;
+		}
+		data.col_search = result;
+		res.json({r:"success"});
+	})
+})
+
+router.get('/person/bookcollect',(req,res)=>{
+	console.log(data);
+	res.render('./user/bookcollect',data);
+})
+
 
 
 
