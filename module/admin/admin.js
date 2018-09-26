@@ -3,7 +3,7 @@ const async = require('async');
 const multer = require('multer');
 const router = express.Router();
 
-// Ìí¼ÓÐ¡ËµÀ¸Ä¿
+// æ·»åŠ å°è¯´æ ç›®
 router.get('/',(req,res)=>{
     // let bid = req.query.bid;
     // let sql='SELECT * FROM book WHERE bid = ? LIMIT 1'
@@ -13,7 +13,7 @@ router.post('/addNovel',(req,res)=>{
     let d=req.body;
     console.log(d);
     if(!d.bname||!d.kinds||!d.author){
-        console.log("ÇëÊäÈëÄÚÈÝ");
+        console.log("è¯·è¾“å…¥å†…å®¹");
         return ;
     }
     let sql = `INSERT INTO books(bname, kinds, author, wordnum,readnum,cover) VALUES (?,?,?,?,?,?)`;
@@ -31,11 +31,11 @@ router.post('/addNovel',(req,res)=>{
     })
 })
 
-// ²éÑ¯ËùÓÐÓÃ»§ÐÅÏ¢
+// æŸ¥è¯¢æ‰€æœ‰ç”¨æˆ·ä¿¡æ¯
 router.get('/user', (req, res) => {
     let data = {};
     // novel.username = req.session.username;
-    //²éÑ¯ËùÓÐÐ¡Ëµ
+    //æŸ¥è¯¢æ‰€æœ‰å°è¯´
     let sql = 'SELECT * FROM user WHERE status = 1';
     conn.query(sql, (err, results) => {
         data.user = results;
@@ -44,25 +44,25 @@ router.get('/user', (req, res) => {
     });
 });
 
-// Ìí¼ÓÓÃ»§À¸Ä¿
+// æ·»åŠ ç”¨æˆ·æ ç›®
 router.get('/addUser',(req,res)=>{
     res.render('admin/addUser');
 })
 
 
 
-// ¹ÜÀíÔ±¸öÈË×ÊÁÏÉèÖÃ
+// ç®¡ç†å‘˜ä¸ªäººèµ„æ–™è®¾ç½®
 router.get('/personnal',(req,res)=>{
     res.render('admin/personnal');
 })
 
 
 
-// Ð¡ËµÐÅÏ¢À¸Ä¿
+// å°è¯´ä¿¡æ¯æ ç›®
 router.get('/novelAll', (req, res) => {
     let novel = {};
     // novel.username = req.session.username;
-    //²éÑ¯ËùÓÐÐ¡Ëµ
+    //æŸ¥è¯¢æ‰€æœ‰å°è¯´
     let sql = 'SELECT * FROM books WHERE status = 1';
     conn.query(sql, (err, results) => {
         novel.novelAll = results;
@@ -71,7 +71,7 @@ router.get('/novelAll', (req, res) => {
     });
 });
 
-// É¾³ýÐ¡Ëµ
+// åˆ é™¤å°è¯´
 router.get('/delete', (req, res) => {
     let sql = 'UPDATE books SET status = 0 WHERE bid = ? LIMIT 1';
     conn.query(sql, req.query.bid, (err, result) => {
@@ -88,7 +88,7 @@ router.get('/delete', (req, res) => {
     });
 });
 
-// É¾³ýÓÃ»§
+// åˆ é™¤ç”¨æˆ·
 router.get('/delete2', (req, res) => {
     let sql = 'UPDATE user SET status = 0 WHERE uid = ? LIMIT 1';
     conn.query(sql, req.query.uid, (err, result) => {
@@ -105,7 +105,7 @@ router.get('/delete2', (req, res) => {
     });
 });
 
-// ÅäÖÃÐ¡ËµÕÂ½Ú¹ÜÀí½çÃæ
+// é…ç½®å°è¯´ç« èŠ‚ç®¡ç†ç•Œé¢
 router.get('/addChapter', (req, res) => {
 
     res.render('admin/addChapter');
@@ -114,13 +114,13 @@ router.get('/addChapter', (req, res) => {
 
 //     res.render('admin/chapter');
 // })
-// ²éÑ¯µ±Ç°Ð¡ËµÄ¿Â¼ÏÂµÄÕÂ½ÚÐÅÏ¢
+// æŸ¥è¯¢å½“å‰å°è¯´ç›®å½•ä¸‹çš„ç« èŠ‚ä¿¡æ¯
 router.get('/novelAll/chapter', (req, res) => {
     let data = {};
     console.log(req.query.bid)
     let bid=req.query.bid;
     // novel.username = req.session.username;
-    //²éÑ¯ËùÓÐÐ¡Ëµ
+    //æŸ¥è¯¢æ‰€æœ‰å°è¯´
     let sql = `SELECT * FROM section WHERE belong = ${bid}`;
     conn.query(sql, (err, results) =>{
       
