@@ -47,30 +47,72 @@ $(function () {
 
   // 头像设置
   $("#up_img").click(function () {
-    let uimg=$("#imgval").attr('value');
+    let uimg = $("#imgval").attr('value');
     console.log(uimg);
     $.ajax({
       url: '/person/setheader',
       type: 'POST',
       dataType: 'JSON',
-      data: {uimg:uimg},
+      data: {
+        uimg: uimg
+      },
       success: function (result) {
         window.location.reload();
       }
     })
   })
 
-  //书架 
-  // $('#shelfs').click(function(){
-  //   $.ajax({
-  //     url:'/person/bookshelf',
-  //     type: 'POST',
-  //     dataType: 'JSON',
-  //     data: {uid:uid},
-  //     success: function (result) {
-  //     console.log(result);
-  //     }
-  //   })
-  // })
+
+  // 删除书单
+  $('.operate').on('click', '.delcate', function () {
+
+    if (!confirm("确定删除吗？")) {
+      return;
+    };
+
+    console.log($(this).attr('id'));
+    let id = $(this).attr('id');
+    $.ajax({
+      url: '/person/delcate',
+      type: 'GET',
+      dataType: 'JSON',
+      data: {
+        id: id
+      },
+      success: function (result) {
+        console.log(result);
+        if (result.r == 'success') {
+          window.location.reload();
+        }
+      }
+    });
+  });
+
+  // 搜索收藏的书
+  $(".search_btn").click(function () {
+    let val = $('input[name="bookname"]').val();
+    $.ajax({
+      url: '/person/search_col',
+      type: 'POST',
+      dataType: 'JSON',
+      data: {
+        bname: val
+      },
+      success: function (result) {
+        console.log(result);
+        if (result.r == "success") {
+          window.location.href = '/person/bookcollect';
+        }
+      }
+    })
+  })
+
+  // 我的书架--推荐书的hover样式
+  $(".book_recomm img").hover(function () {
+    console.log(999);
+    $(this).prev().stop().css("display", "block");
+  }, function () {
+    $(this).prev().stop().css("display", "none");
+  })
 
 })
