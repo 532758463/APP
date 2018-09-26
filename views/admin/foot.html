@@ -33,8 +33,6 @@
 <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/layui/layui.all.js"></script>
 <script src="/js/updateNovel.js"></script>
-
-<!-- <script src="/layui/layui.js"></script>  -->
 <script>
     //Demo
 layui.use('form', function(){
@@ -46,6 +44,82 @@ layui.use('form', function(){
   });
 });
 </script>
+<!-- //管理员头像处理 -->
+<script >
+let img = document.querySelector('#images');
+    //当选择文件时，value值改变会触发change事件
+    img.onchange = function () {
+        //获取选中的文件信息：文件内容
+        console.log(this.files[0]);
+        let This = this;
+        //使用ajax发送图片到服务器
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', '/uploadimg');
+
+        //创建一个表单数据对象
+        let formdata = new FormData();
+        formdata.append('images', This.files[0]); //往表单追加input 名字，值
+        // formdata.append('aname', '晓晓');  //这里相当于 input：text,nmae=username,value=晓晓
+        xhr.send(formdata);
+        console.log(formdata);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                let data = JSON.parse(xhr.responseText);
+                console.log(data);
+                document.querySelector('#img').src = data.path;
+                document.querySelector('#imgval').value = data.path;
+            }
+        }
+    }
+    $('#adimg_sub').click(function(){
+        let time;
+        $.ajax({
+            url:'/uploadinfo',
+            type:'post',
+            dataType:'json',
+            data:$('#admin_form').serialize(),
+            success:function(result){
+                console.log(result);
+                if(result.r=='null'){
+                    layer.msg('请输入有效账号或密码！', {
+                        time: 5000, //5s后自动关闭
+                        btn: ['OK']
+                      });
+                      return;
+                }
+                if(result.r=='p_err'){
+                    layer.msg('两次密码不一致，请重新核对密码！', {
+                        time: 5000, //5s后自动关闭
+                        btn: ['OK']
+                      });
+                      return;
+                }
+                if(result.r=='db_err'){
+                    layer.msg('数据库错误，请刷新页面重试！', {
+                        time: 5000, //5s后自动关闭
+                        btn: ['OK']
+                      });
+                      return;
+                }
+                if(result.r=='ok'){
+                    layer.msg('修改成功，5秒后到达战场！', {
+                        time: 5000, //5s后自动关闭
+                        btn: ['OK']
+                      });
+                      time = setTimeout(function(){
+                          window.location.href = '/admin';
+                      },5000);
+                }
+            }
+        });
+        clearTimeout(time);
+        return false;
+    });
+
+    </script>
+
+
 
 </body>
 

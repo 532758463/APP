@@ -1,8 +1,7 @@
-const express=require('express');
-const router=express.Router();
-
-//登录页面
-router.get('/',(req,res)=>{
+const express = require('express');
+const router = express.Router();
+//管理员登录  各种路由处理
+router.get('/', (req, res) => {
     res.render('user/login');
 });
 
@@ -18,8 +17,8 @@ router.post('/', (req, res) => {
         });
         return;
     }
-    let sql = 'select * from user where status = 1 and uname = ?';
-    conn.query(sql, d.aname, (err, result) => {
+    let sql = 'select * from user where status = 1 and username = ?';
+    conn.query(sql, d.username, (err, result) => {
         //账号不存在
         if (!result.length) {
             res.json({
@@ -28,7 +27,7 @@ router.post('/', (req, res) => {
             return;
         }
         //判断密码是否正确
-        if (md5(d.apasswd) != result[0].apasswd) {
+        if (md5(d.upasswd) != result[0].upasswd) {
             res.json({
                 r: 'p_err'
             });
@@ -36,11 +35,11 @@ router.post('/', (req, res) => {
         }
         //登录成功
         //保存session信息
-        req.session.aid = result[0].aid;
-        req.session.aname = result[0].aname;
+        req.session.uid = result[0].uid;
+        req.session.username = result[0].username;
         //更新状态
         let sql = 'UPDATE user SET utime = ? WHERE uid = ?';
-        conn.query(sql, [new Date().toLocaleString(), result[0].aid], (err, result) => {
+        conn.query(sql, [new Date().toLocaleString(), result[0].uid], (err, result) => {
             res.json({
                 r: 'ok'
             });

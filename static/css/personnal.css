@@ -1,13 +1,45 @@
-#form input {
+#admin_form input {
     width: 500px;
 }
-#form .text{
+#admin_form .text{
     width: 500px;
 }
 
-#form .head{
+#adin_form .head{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+#adin_form .head #img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+#register input {
+    width: 500px;
+}
+#register .text{
+    width: 500px;
+}
+
+#register .head{
     width: 200px;
     height: 200px;
     overflow: hidden;
     border-radius: 50%;
+}
+.user{
+    margin: 30px;
+    margin-left: 0px;
+}
+#register{
+    margin: 10px auto;
+    display: block;
+    width: 650px;
+}
+
+#register h1{
+    margin: 20px auto;
+    text-align: center;
 }

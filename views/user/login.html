@@ -22,7 +22,7 @@
 	    <h1>用户登录</h1>
 	    <form class="layui-form" id="userlogin">
 	    	<div class="layui-form-item">
-                <input class="layui-input" name="uname" placeholder="用户名" lay-verify="required" type="text" autocomplete="off">
+                <input class="layui-input" name="username" placeholder="用户名" lay-verify="required" type="text" autocomplete="off">
                 <!-- <a href="#" method="confirmTm" class="layui-btn">配置一个透明的询问框</a> -->
 		    </div>
 		    <div class="layui-form-item">
@@ -32,18 +32,17 @@
 				<input class="layui-input" name="coder" placeholder="验证码" lay-verify="required" type="text" autocomplete="off">
 				<div class="code"><img src="/coder" width="116" height="36" id="coderimg"></div>
 		    </div>
-			<div class="layui-form-item user-login-register">
-               
-                    <button class="layui-btn user-login" type="button" lay-submit lay-filter="login">登录</button>
-                    <button class="layui-btn user-register" type="button" lay-submit lay-filter="register">注册</button>
-               
-               
+			<div class="layui-form-item user-login-register">   
+                <button class="layui-btn user-login" type="button" lay-submit lay-filter="login">登录</button>
+                <button class="layui-btn user-register" type="button" lay-submit lay-filter="register" id="register">注册</button>
             </div>
-		</form>
+        </form>
+        
 	</div>
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="/layui/layui.all.js"></script>
     <script src="/js/user/login.js"></script>
+    <script src="/js/user/register.js"></script>
 </body>
 
 </html>
