@@ -1,70 +1,22 @@
 <% include head.html%>
-<div class="layui-body">
-<form class="layui-form" style="width:80%;">
+<div class="layui-body ">
+	<form class="layui-form" style="width:80%;">
 		<div class="layui-form-item">
 			<label class="layui-form-label">章节标题</label>
 			<div class="layui-input-block">
-				<input type="text" class="layui-input newsName" lay-verify="required" placeholder="请输入文章标题">
-			</div>
-		</div>
-		<div class="layui-form-item">
-			<div class="layui-inline">
-				<label class="layui-form-label">自定义属性</label>
-				<div class="layui-input-block">
-					<input type="checkbox" name="tuijian" class="tuijian" title="推荐">
-					<div class="layui-unselect layui-form-checkbox" lay-skin=""><span>推荐</span><i class="layui-icon"></i></div>
-					<input type="checkbox" name="shenhe" class="newsStatus" title="审核">
-					<div class="layui-unselect layui-form-checkbox" lay-skin=""><span>审核</span><i class="layui-icon"></i></div>
-					<input type="checkbox" name="show" class="isShow" title="展示">
-					<div class="layui-unselect layui-form-checkbox" lay-skin=""><span>展示</span><i class="layui-icon"></i></div>
-				</div>
-			</div>
-			<div class="layui-inline">
-				<label class="layui-form-label">作者</label>
-				<div class="layui-input-inline">
-					<input type="text" class="layui-input newsAuthor" lay-verify="required" placeholder="请输入文章作者">
-				</div>
-			</div>
-			<div class="layui-inline">
-				<label class="layui-form-label">发布时间</label>
-				<div class="layui-input-inline">
-					<input type="text" class="layui-input newsTime" lay-verify="required|date" onclick="layui.laydate({elem:this})">
-				</div>
-			</div>
-			<div class="layui-inline">
-				<label class="layui-form-label">浏览权限</label>
-				<div class="layui-input-inline">
-					<select name="browseLook" class="newsLook" lay-filter="browseLook">
-						<option value="0">开放浏览</option>
-						<option value="1">会员浏览</option>
-					</select>
-					<div class="layui-unselect layui-form-select">
-						<div class="layui-select-title"><input type="text" placeholder="开放浏览" value="开放浏览" readonly="" class="layui-input layui-unselect"><i
-							 class="layui-edge"></i></div>
-						<dl class="layui-anim layui-anim-upbit">
-							<dd lay-value="0" class="layui-this">开放浏览</dd>
-							<dd lay-value="1" class="">会员浏览</dd>
-						</dl>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">关键字</label>
-			<div class="layui-input-block">
-				<input type="text" class="layui-input" placeholder="请输入文章关键字">
+				<input type="text" class="layui-input newsName" lay-verify="required" id="sname" name="sname" placeholder="请输入文章标题">
 			</div>
 		</div>
 		<label class="layui-form-label">章节内容</label>
 		<div class="layui-form-item">
-				
-			<div id="editor">
+
+			<div id="editor" style="position: relative;left:100px;" name="scontent">
 				<!-- <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p> -->
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<div class="layui-input-block">
-				<button class="layui-btn" lay-submit="" id='btn2' lay-filter="addNews">立即提交</button>
+				<button class="layui-btn" type="button" lay-submit="" id='btn2' lay-filter="addNews">添加</button>
 				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 			</div>
 		</div>
@@ -82,9 +34,26 @@
 	var editor = new E('#editor');
 	// 或者 var editor = new E( document.getElementById('editor') )
 	document.getElementById('btn2').addEventListener('click', function () {
-        // 读取 text
-        alert(editor.txt.text())
-    }, false)
+		// 读取 text
+		// alert(editor.txt.text());
+		// 获得所添加的章节内容
+		// replace(/[&\|\\\*^%$#@\-]/g,"");
+		let scontent = editor.txt.text().replace(/[&\|\\\*^%$#@\-\[\],'']/g,"");
+		// 获得章节标题
+		let sname = document.querySelector('#sname').value;
+
+		let xhr = window.XMLHttpRequest ? new XMLHttpRequest : ActiveXObject('Microsoft.XMLHTTP');
+		// 数据请求方式
+		xhr.open('POST', '/admin/novelAll/getChapter', true);
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.send(`scontent=${scontent}&sname=${sname}`);
+		xhr.onreadystatechange = function () {
+			if(xhr.readyState == 4 && xhr.status==200){
+				alert('添加成功');
+				window.location.href='/admin/novelAll';	
+			}
+		}
+	}, false)
 	editor.create();
 </script>
 <% include foot.html%>

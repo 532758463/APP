@@ -1,0 +1,124 @@
+<%include novelHead.html%>
+<div class="parentBox">
+<div class="layui-row kindsNovelBg">
+    <div class="layui-col-md12"><img src="/img/FantasyNovelBg.jpg" alt=""></div>
+</div>
+
+<div class="layui-row navNovel">
+    <div class="layui-col-md9">
+        <span class="layui-breadcrumb" lay-separator="|">
+            <a href="">东方玄幻</a>
+            <a href="">异世大陆</a>
+            <a href="">王朝争霸</a>
+            <a href="">高武世界</a>
+            <a href="">玄幻完本</a>
+        </span>
+    </div>
+
+</div>
+<div class="layui-row displayNovel" style="">
+    <hr>
+    <div class="layui-col-xs6 layui-col-sm6 layui-col-md3 displayNovel__right">
+
+        <ul class="layui-nav1 layui-nav-tree layui-bg-cyan layui-inline" lay-filter="demo">
+            <li class="" style="text-align: center;font-size:18px;line-height: 40px;height:40px;"><a href="">本周强荐</a></li>
+            <%for(let i=0;i<10;i++){%>
+            <li class="">
+                <a  href="/novelInfo" class="sendbid" sendBid="<%=books[i]['bid']%>">
+                    <%=books[i]['bname']%></a>
+                <a  class="author">
+                    <%=books[i]['author']%></a>
+            </li>
+            <%}%>
+        </ul>
+    </div>
+    <div class="layui-col-xs6 layui-col-sm6 layui-col-md8 displaybox displayNovel__right">
+        <div class="imgbox">
+
+            <ul class="imglist">
+                    <%for(let i=0;i<4;i++){%> 
+                <li>
+                    <a  class="sendbid" sendBid="<%=books[i]['bid']%>">
+                        <img src="<%=books[i]['cover']%>" alt="">
+                    </a>
+                    <div class="describe">
+                        <h3 style="color:#333;font-weight:bold;">
+                            <a  href="/novelInfo" sendBid="<%=books[i]['bid']%>"><%=books[i]['bname']%></a>
+                        </h3>
+                        <p><%=books[i][' describe1']%></p>
+                    </div>
+                </li>
+                <%}%>
+            </ul>
+            <hr>
+            <div class="new-wrap cf" data-l1="6">
+                <h3><span>新书精选</span><cite></cite></h3>
+                <ul>
+                    <li data-rid="1"><a href="">超级神外挂</a><i>·</i><span>陈青云：“嘁，老子有外挂！”</span></li>
+                    <li data-rid="2"><a href="">不朽毒师</a><i>·</i><span>穿越至游戏《无境》</span></li>
+                    <li data-rid="1"><a href="">王冠法师</a><i>·</i><span>承载君王的意志，唤醒沉睡的子民！</span></li>
+                    <li data-rid="1"><a href="">异界文化妖王</a><i>·</i><span>异界版的电子商务？</span></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="layui-col-xs6 layui-col-sm6 layui-col-md2 disRightbox">
+        <ul class="layui-nav1 layui-nav-tree layui-bg-cyan layui-inline" lay-filter="demo">
+            <li class="" style="text-align: center;font-size:18px;line-height: 40px;height:40px;"><a href="">本周强荐</a></li>
+            <li class="">
+                <a href="">「公告」起点网站全面安全升级</a>
+            </li>
+            <li class="">
+                <a href="">「资讯」网络文学“十二天王”</a>
+            </li>
+            <li class="">
+                <a href="">「公告」起点网站全面安全升级</a>
+            </li>
+            <li class="">
+                <a href="">「资讯」网络文学“十二天王”</a>
+            </li>
+            <li class="">
+                <a href="">「公告」起点网站全面安全升级</a>
+            </li>
+            <li class="">
+                <a href="">「资讯」网络文学“十二天王”</a>
+            </li>
+            <li class="">
+                <a href="">「公告」起点网站全面安全升级</a>
+            </li>
+            <li class="">
+                <a href="">「资讯」网络文学“十二天王”</a>
+            </li>
+        </ul>
+    </div>
+
+
+</div>
+
+<div class="layui-row displayNovel novel-wrap" style="">
+    <h2>玄幻新书</h2>
+    <hr>
+    <ul class="fantasyDis">
+        	<% for (let c of books){%>
+        <li>
+            <div class="book-img">
+                <a  href="" class="sendbid" sendBid="<%=c.bid%>">
+                    <img src="<%=c.cover%>" alt="念动全球">
+                </a>
+            </div>
+            <div class="book-info1">
+                <h4><a href="" class="sendbid" sendBid="<%=c.bid%>"><%=c.bname%></a></h4>
+                <p><%=c.describe1%></p>
+                <div class="state-box cf">
+                    <span>日更2千+</span>
+                    <i>东方玄幻</i>
+                    <a class="author">海洋的水</a>
+                </div>
+            </div>
+        </li>
+        <%}%>
+    </ul>
+</div>
+</div>
+<%include footNovel.html%>

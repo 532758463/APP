@@ -1,5 +1,4 @@
-//
-
+//引入各种模块
 const express = require('express');
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
@@ -12,20 +11,19 @@ const multer = require('multer');
 
 // 
 const app = express();
-//
+//定义各种参数
 let secret = 'sports.app.myweb.www';
-
-//
-app.use(bodyParser.urlencoded({extended:true}));
+//数据接收
+app.use(bodyParser.urlencoded({  
+  extended: true
+  }));
 app.use(cookieParser(secret));
-
-//
+//模板引擎设置
 app.engine('html', ejs.renderFile);
 app.set('view engine', 'html');
 app.set('views', './views');
-
-
-//
+// app.use(bodyParser.json());
+//数据库连接
 global.conn = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -51,6 +49,7 @@ const storage = multer.diskStorage({
         //按照月份存放路径
         cb(null, `./uploads/${new Date().getFullYear()}/${(new Date().getMonth()+1).toString().padStart(2,'0')}`);
     },
+    //文件名
     filename: function (req, file, cb) {
         //保证文件名的不重复 时间+随机数+文件后缀
         // new Date().valueOf() 把时间转化为时间戳
@@ -162,6 +161,11 @@ app.post('/uploads', upload.array('images', 1000), (req, res) => {
 app.use('/admin/login',require('./module/admin/login'));
 //管理员主界面
 app.use('/admin',require('./module/admin/admin'));
+
+// 用户登录
+app.use('/login', require('./module/user/login'));
+
+
 
 //主页面各种操作
 app.use('/',require('./module/user/index'));

@@ -1,0 +1,48 @@
+<%include novelHead.html%>
+<div class="layui-container">
+    <div class="readBox">
+        <div class="readBox__one">
+            <ul class="readBox__one-a">
+                <li class="readImg">
+                    <img src="<%=books[0]['cover']%>" alt="小说背景图">
+                </li>
+                <li>
+                    <h1 style="text-indent: 15px;"><%=books[0]['bname']%></h1>
+                    <p class="grayfont" style="text-indent: 25px;"><%=books[0]['author']%> 著</p>
+                </li>
+                <li>
+                    <ul class="floatLeft ">
+                        <li><%=books[0]['kinds']%></li>
+                        <!-- <%=new Date(books[0]['addstime'])%> -->
+                        <!-- moment(item.date).format('YYYY-MM-DD'); -->
+                        <li>2018-8-24 </li>
+                        <li><%=books[0]['readnum']%></li>
+                    </ul>
+                    <div style="clear: both;"></div>
+               
+                    <ul class="floatLeft">
+                        <li class="grayfont">类型</li>
+                        <li class="grayfont">上架 </li>
+                        <li class="grayfont"> 连载(字)</li>
+                    </ul>
+                    <div style="clear: both;"></div>
+                </li>
+
+               <li class="floatLeft"><p>与11.02万书友共同开启伏天的玄幻之旅</p></li>  
+               <li class="readBottom">
+                   <p>本文由火柴阅读中文网所有</p>
+                   <p class="grayfont"> &copy;版权所有 侵权必究</p>
+                </li>  
+            </ul>
+        </div>
+        <div class="readBox__two">
+            <span class="novelTitle"><%=books[0]['sname']%></span>
+               
+                <br>
+                <!-- -->
+                <%-books[0]['scontent'].split("nbsp;") %>
+        </div>
+    </div>
+</div>
+
+<%include footNovel.html%>

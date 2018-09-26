@@ -6,3 +6,33 @@
 .addCenter input{
     width: 400px;
 }
+tbody .coverImg{
+    width: 66px;
+    height:86px;
+}
+.admin_box {
+    width: 1168px;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+}
+.admin_box .btn{
+    display: block;
+    width: 135px;
+    height:94px;
+    line-height: 94px;
+    font-size: 50px;
+    border-radius:5% 0 5% 0;
+    margin-top: 20px;
+}
+.admin_box .cbox{
+    margin-top: 20px;
+    display:block;
+    width: 200px;
+    height: 94px;
+    background:#ccc;
+    line-height: 94px;
+    text-align:center;
+    font-size: 25px;
+    color:#666;
+}

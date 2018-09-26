@@ -1,0 +1,64 @@
+<% include head.html%>
+<div class="layui-body">
+	<blockquote class="layui-elem-quote news_search">
+
+		<div class="layui-inline">
+			<a class="layui-btn layui-btn-normal newsAdd_btn" href='/admin/novelAll/addChapter'>添加章节</a>
+		</div>
+
+		<div class="layui-inline">
+			<a class="layui-btn audit_btn">章节管理</a>
+		</div>
+		<div class="layui-inline">
+			<a class="layui-btn layui-btn-danger batchDel">批量删除</a>
+		</div>
+
+	</blockquote>
+	<table class="layui-table  mytable catelist">
+		<colgroup>
+			<col width="80">
+			<col width="120">
+			<col width="120">
+			<col width="120">
+			<col width="120">
+			<col width="120">
+			<col width="80">
+			
+		</colgroup>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>章节名</th>
+				<th>作者</th>
+				<th>添加时间</th>
+				<th>所属小说</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody class="news_content">
+			<% for (let c of chapterlist){%>
+			<tr>
+				
+				<td><%=c.sid%></td>
+				<td><%=c.sname%></td>
+				<td><%=c.author%></td>
+				<td><%=c.addstime%></td>
+				<td><%=c.bname%></td>
+				<td>
+					<a class="layui-btn layui-btn-mini  layui-btn-sm news_edit updateChapter" href="/admin/novelAll/addChapter" bid=<%c.bid%>>
+						<i class="layui-icon layui-icon-edit"></i> 
+					<a class="layui-btn layui-btn-danger delete3 href='/admin/novelAll/chapter' layui-btn-mini layui-btn-sm news_collect" sid="<%=c.sid%>">
+						<i class="layui-icon layui-icon-delete"></i> 
+					</a>
+				</td>
+			</tr>
+			<%}%>
+		</tbody>
+
+
+		<div id="pages"></div>
+
+</div>
+</div>
+
+<% include foot.html%>

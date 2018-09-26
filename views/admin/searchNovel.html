@@ -3,12 +3,6 @@
 
     <blockquote class="layui-elem-quote news_search">
         <div class="layui-inline">
-            <div class="layui-input-inline">
-                <input type="text" value="" placeholder="请输入关键字" class="layui-input search_input getNovelTitle"  autocomplete="on">
-            </div>
-            <a class="layui-btn search_btn searchNovel">查询</a>
-        </div>
-        <div class="layui-inline">
             <a class="layui-btn layui-btn-normal newsAdd_btn" href="/admin/addNovel">添加小说</a>
         </div>
         <div class="layui-inline">
@@ -42,7 +36,7 @@
                 </tr>
             </thead>
             <tbody class="news_content">
-                <% for (let c of novelAll){%>
+                <% for (let c of search){%>
                 <tr>
                     <td><input type="checkbox" name="checked" lay-skin="primary" lay-filter="choose">
                         <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon"></i></div>

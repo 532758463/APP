@@ -1,0 +1,396 @@
+*{
+    margin:0;
+    padding: 0;  
+}
+body{
+    overflow-x: hidden;
+}
+.layui-container{
+    width: 100%;
+    padding: 0;
+}
+.layui-container .userSignIn{
+    position: relative;
+    left: 510px;
+}
+.layui-container .userRead{
+    position: relative;
+    left: 550px;
+}
+#formUrl{
+    position: relative;
+    right: -780px;
+    top: -50px;
+    width: 280px;
+}
+#formUrl input{
+    width: 180px;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid #aaa;
+    background:#393D49;
+    outline: none;
+    color: rgba(255,255,255,.7);
+}
+#formUrl input:focus{
+    border-bottom: 2px solid #fff; 
+}
+#formUrl .layui-btn{
+    background: #393D49;
+}
+.kindsNovelBg{
+    width: 100%;
+    position: relative;
+    top:-40px;
+}
+.kindsNovelBg img{
+    width: 100%;;
+    height: 120px;
+    
+}
+.navNovel{
+   position:relative;
+   left: 8%;
+   top: -25px;
+}
+.navNovel span,.navNovel span a{
+    color:#000 !important;
+    font-size: 17px;
+}
+.displayNovel{
+    width:80%;
+    position: relative;
+    left: 8%;
+    top: -20px;
+}
+.displayNovel .displayNovel__right{
+    /* padding-right: 5px; */
+}
+.displayNovel .layui-bg-cyan{
+    background-color:#f7f6f2 !important;
+}
+.displayNovel .layui-nav1{
+    width: 216px;
+    height: 370px; 
+}
+.displayNovel .layui-nav1 li{
+    width: 192px;
+    height: 31px;
+    font-size: 16px;
+    text-indent: 15px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+}
+
+.displayNovel .layui-nav1 a:hover{
+    color:#FF5722;
+}
+.displayNovel a.author{
+    /* padding-left: 20px; */
+    display: inline-block;
+    width: 80px;
+    text-align: center;
+    margin-left: 30px;
+    font-size: 12px;
+    color:#a6a6a6;
+}
+.displayNovel a.author:hover{
+    color:#000;
+}
+.displaybox {
+    width: 746px;
+    height: 370px;
+    background: #f7f6f2;
+    position: relative;
+    left: -38px;
+}
+.imglist{
+    margin-top: 20px;
+    display:-webkit-flex;
+    display: flex;
+    justify-content: space-around;
+    
+}
+.imglist li {
+    background-image: url("/img/book_bottom.png");
+    background-repeat: no-repeat;
+}
+.imglist li img{
+   -webkit-transform: rotateX(20deg);
+   transform: rotateX(20deg);
+   
+}
+/* .imglist li img:hover{
+
+   -webkit-transform: rotateY(40deg);
+   transform: rotateY(40deg);
+   
+} */
+.imglist li img{
+    width: 104px;
+    height: 140px;
+}
+.imglist li .describe {
+    margin-top: 30px;
+    text-align: center;
+}
+.describe p{
+    color: #aaa;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+}
+
+
+.cf {
+   zoom: 1;
+    }
+    .cf:before {
+    display: table;
+    content: '';
+}
+.cf h3 {
+    position: relative;
+    z-index: 1;
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    text-align: center;
+    background: #ed4259;
+}
+.cf h3 span{
+    font: 16px/20px FZZCYSK;
+    display: block;
+    width: 32px;
+    padding: 5px 9px;
+    color: #fff;
+}
+.new-wrap{
+    position: relative;
+    top: 25px;
+}
+.new-wrap ul{
+    margin-left: 0;
+    list-style: none outside none;
+}
+.new-wrap ul li{
+    float: left;
+    overflow: hidden;
+    width: 300px;
+    height: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+.new-wrap li a{
+    max-width: 84px;
+    font-family: PingFangSC-Regular,'-apple-system',Simsun;
+    overflow: hidden;
+    max-width: 112px;
+    white-space: normal;
+    text-overflow: ellipsis;
+}
+.new-wrap li  span{
+    font-size: 14px;
+    line-height: 20px;
+    float: left;
+    overflow: hidden;
+    height: 20px;
+}
+.disRightbox {
+    position: relative;
+    left: 990px;
+    top: -370px;
+}
+.disRightbox li{
+    padding-top: 8px;
+    overflow: hidden; 
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    
+  
+}
+/* .fantasyDis {
+    display:-webkit-flex;
+    display: flex;
+    justify-content: space-around;
+} */
+.novel-wrap{
+    position: relative;
+    top: -370px;
+}
+.novel-wrap .book-img{
+    width: 72px;
+    height: 96px;
+    overflow: hidden;
+}
+.book-img img{
+    width: 72px;
+    height: 96px;
+}
+.book-img img:hover{
+    -webkit-transform: scale(1.1) ;
+    transform: scale(1.1);
+    -webkit-transition:all ease 0.5s;
+    transition:all ease 0.5s;
+}
+.novel-wrap .book-info1{
+    width: 144px;
+    position: relative;
+    top: -72px;
+    left: 110px;
+}
+.book-info1 p{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+}
+.fantasyDis li{
+    display: inline-block;
+    width: 228px;
+    height: 138px;
+    margin-right: 35px;
+}
+.state-box span{
+    max-width: 66px;
+    height: 18px;
+    color: #bf2c24;
+    border: 1px solid #df9591;
+}
+.state-box i{
+    max-width: 52px;
+    height: 18px;
+    margin-right: 8px;
+    color: #a6a6a6;
+    border: 1px solid #bfbfbf;
+}
+
+
+
+/* 小说详情界面的css */
+.InfoBox{
+    width: 990px;
+    height: 232px;
+    box-shadow:  0 0px 8px 0 rgba(0, 0, 0, 0.15);
+    position: relative;
+    top: -150px;
+    left: 15%;
+    background:#fff;
+}
+.InfoBox .textBox{
+    position: absolute;
+    top: 15px;
+    left:200px; 
+}
+.InfoBox>.Imgbox1{
+    width: 144px;
+    height: 192px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    overflow: hidden;
+}
+.InfoBox img{
+    width: 144px;
+    height: 192px;
+}
+.InfoBox img:hover{
+    -webkit-transform: scale(1.1) ;
+    transform: scale(1.1);
+    -webkit-transition:all ease 0.5s;
+    transition:all ease 0.5s;
+}
+.nav-wrap{
+    width: 990px;
+    position: relative;
+    top: -120px;
+    
+}
+.nav-wrap .layui-tab-title li{
+    font-size: 20px ;
+}
+.nav-wrap .layui-show p{
+    font-size: 17px;
+    line-height: 40px;
+}
+.chapterList{
+    display:-webkit-flex;
+    display: flex;
+    justify-content: space-around;
+}
+.chapterList li{
+    display:inline-block;
+    width: 320px;
+    height: 41px;
+}
+.chapterList .getSid{
+    cursor: pointer;
+}
+
+
+
+/* 小说阅读页面编写 */
+
+
+
+.readBox .readBox__one{
+    width: 718px;
+    height: 609px;
+    position: relative;
+    background:url("/img/basic_bg.png");
+    background-repeat: repeat;
+    margin: 0 auto;
+}
+.readBox>.readBox__one>.readBox__one-a{
+    
+    width: 600px;
+    position: absolute;
+    top: 50px;
+    left: 37%;
+} 
+.readBox__one-a>li{
+    margin-bottom: 40px;
+}
+.readImg>img{
+    width: 120px;
+    height: 160px;
+}
+.readBox__one-a .floatLeft>li{
+    float: left;
+    margin-right: 50px;
+}
+.floatLeft{
+    position: relative;
+    left: -50px;
+}
+.grayfont {
+    color: rgba(0,0,0,.4);
+    padding-top: 5px;
+}
+.readBox__one-a .readBottom{
+    position: relative;
+    top: 15px;
+}
+.readBox__two{
+    width: 718px;
+    height:auto;
+    position: relative;
+    left: 316px;
+    margin-top: 20px;
+    background:url("/img/basic_bg.png");
+    background-repeat: repeat;
+    overflow: hidden;
+    padding-top: 50px;
+    text-indent: 50px;
+    font-size: 18px;
+    line-height: 50px;
+}
+.readBox__two .novelTitle{
+    position: relative;
+    left:35%;
+    font-size: 25px;
+    font-weight: bold;
+}

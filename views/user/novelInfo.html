@@ -1,0 +1,68 @@
+<%include novelHead.html%>
+<div>
+<div class="layui-row kindsNovelBg">
+    <div class="layui-col-md12"><img src="/img/FantasyNovelBg.jpg" alt="" style="height:222px;"></div>
+</div>
+<div class="InfoBox">
+    <div class="Imgbox1"> <img src="<%=books[0]['cover']%>" alt="/img/伏天氏.jpg"></div>
+
+    <div class="textBox">
+        <ul>
+            <li>
+                <h1><%=books[0]['bname']%></h1>
+                <p><%=books[0]['author']%> 著</p>
+            </li>
+            <li>
+                <ul class="tag">
+                    <li class="layui-btn layui-btn-radius  layui-btn-primary layui-btn-sm">连载</li>
+                    <li class="layui-btn layui-btn-radius  layui-btn-primary layui-btn-sm">签约</li>
+                    <li class="layui-btn layui-btn-radius  layui-btn-primary layui-btn-sm">免费</li>
+                    <li class="layui-btn layui-btn-radius  layui-btn-primary layui-btn-sm">玄幻</li>
+                    <li class="layui-btn layui-btn-radius  layui-btn-primary layui-btn-sm">异世大陆</li>
+                </ul>
+            </li>
+            <li>
+                心潮澎湃，无限幻想，迎风挥击千层浪，少年不败热血！
+            </li>
+            <li>
+                <span>8.29万字</span>
+                <span>5.29万总会员点击</span>
+                <span>852总推荐</span>
+            </li>
+            <li>
+                <ul>
+                    <li class="layui-btn layui-btn-danger "><a href="">继续阅读</a></li>
+                    <li class="layui-btn layui-btn-primary "><a href="">加入书架</a></li>
+                    <li class="layui-btn layui-btn-primary "><a href="">投推荐票</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="layui-body nav-wrap">
+    <div class="layui-tab  layui-tab-brief " lay-filter="docDemoTabBrief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">作品信息</li>
+            <li>目录</li>
+            <li>作品讨论</li>
+        </ul>
+        <div class="layui-tab-content" style="height: 100px;">
+        <div class="layui-tab-item layui-show">
+        　<p><%=books[0]['describe1']%></p>
+        </div>
+            <div class="layui-tab-item">
+                <h2><%=books[0]['bname']%></h2>
+                <hr>
+                <ul class="chapterList">
+                  <%for(let i=0;i<books.length;i++){%>
+                    <li><a class="getSid" sid="<%=books[i]['sid']%>">第<%=i+1%>章 <%=books[i]['sname']%> </a></li>
+                    <hr>
+                  <%}%>
+                </ul>
+            </div>
+            <div class="layui-tab-item">3</div>
+        </div>
+    </div>
+</div>
+
+<%include footNovel.html%>

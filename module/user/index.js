@@ -61,9 +61,11 @@ router.get('/user/person', (req, res) => {
 			});
 			return;
 		}
-		data.userinfo = result;
-		// console.log(data);
-		res.render('./user/person', data);
+		// 把从数据库查询到的该用户的信息保存并传给个人页面进行渲染
+		let data={};
+		// data.person_info=result;
+		console.log(data);
+		res.render('./user/person',data);
 	})
 
 })
@@ -72,32 +74,29 @@ router.get('/user/person', (req, res) => {
 router.get('/person/info', (req, res) => {
 	res.render('./user/info', data);
 })
-
-
 // 个人信息设置
 router.post('/person/setinfo', (req, res) => {
 	let d = req.body;
-	let sql = `UPDATE user SET username=?,sex=?,birth=?,address=?,selfdes=? WHERE uid = ? LIMIT 1`;
-	conn.query(sql, [d.username, d.sex, d.birth, d.address, d.selfdes, uid], (err, result) => {
-		if (err) {
-			console.log(err);
-			res.json({
-				r: 'db_err'
-			});
-			return;
-		}
-		res.json({
-			r: 'success'
-		});
-	})
+  	let sql = `UPDATE user SET username=?,sex=?,birth=?,address=?,selfdes=? WHERE uid = ? LIMIT 1`;
+    conn.query(sql, [d.username, d.sex, d.birth, d.address, d.selfdes, uid], (err, result) => {
+    if (err) {
+      console.log(err);
+    res.json({
+    	r: 'db_err'
+      });
+      	return;
+        }
+        res.json({
+        r: 'success'
+        })
+        })
 })
-
 //保存修改的头像信息到数据库          
 router.post('/person/setheader', (req, res) => {
 	// console.log(req.body);
-	let d = req.body;
-	let sql = `UPDATE user SET uimg=? WHERE uid = ${uid} LIMIT 1`;
-	conn.query(sql, d.uimg, (err, result) => {
+  	let d = req.body;
+     let sql = `UPDATE user SET uimg=? WHERE uid = ${uid} LIMIT 1`;
+      	conn.query(sql, d.uimg, (err, result) => {
 		if (err) {
 			console.log(err);
 			res.json({
@@ -110,8 +109,6 @@ router.post('/person/setheader', (req, res) => {
 		});
 	})
 })
-
-
 // 我的主页 
 router.get('/person/homepage', (req, res) => {
 	// 书目
@@ -189,8 +186,97 @@ router.get('/person/bookcollect',(req,res)=>{
 	res.render('./user/bookcollect',data);
 })
 
+// 分类小说（玄幻小说)路由
+router.get('/FantasyNovel',(req,res)=>{
+	let sql=`SELECT * FROM books WHERE status=1 AND kinds='玄幻'`;
+	conn.query(sql,(err,result)=>{
+		if(err){
+			console.log(err);
+			return;
+		}
+		// 把从数据库查询到的该用户的信息保存并传给个人页面进行渲染
+		let data={};
+		data.books=result;
+		res.render('user/FantasyNovel',data);
+	})
+	
+})
 
 
 
 
+
+
+let bidInfo=0;
+// 获取被点击小说的详情
+router.post('/novelInfo',(req,res)=>{
+	bidInfo=req.body.bidInfo;
+	// console.log(bidInfo);
+	let sql = `SELECT * FROM section INNER JOIN books on section.bid=books.bid where  section.bid=${bidInfo} AND  section.status=1;`
+	conn.query(sql,(err,result)=>{
+		if(err){
+			console.log(err);
+			return;
+		}
+
+		res.json({
+            r: 'success'
+        });
+	})
+})
+// 配置小说详情页的路由,并且获得数据
+router.get('/novelInfo',(req,res)=>{
+	let bid=bidInfo;
+	console.log(bid);
+	let sql = `SELECT * FROM section INNER JOIN books on section.bid=books.bid where  section.bid=${bid} AND  section.status=1;`
+	conn.query(sql,(err,result)=>{
+		if(err){
+			console.log(err);
+			return;
+		}
+		// 把从数据库查询到的该用户的信息保存并传给个人页面进行渲染
+		let data={};
+		data.books=result;
+		// console.log(data.books);
+		res.render('user/novelInfo',data);
+})
+});
+
+
+// 阅读小说的界面路由
+// router.get('/novelInfo/readNovel',(req,res)=>{
+// 	res.render('user/readNovel');
+// })
+// 获得被点击章节的sid
+let readSid=0;
+router.post('/novelInfo/readNovel',(req,res)=>{
+	readSid=req.body.getSid;
+	// console.log(bidInfo);
+	let sql = `SELECT * FROM section INNER JOIN books on section.bid=books.bid where  section.sid=${readSid} AND  section.status=1;`
+	conn.query(sql,(err,result)=>{
+		if(err){
+			console.log(err);
+			return;
+		}
+
+		res.json({
+            r: 'success'
+        });
+	})
+});
+// 获得小说章节数据并且渲染到页面（将数据发送到模板文件里）
+router.get('/novelInfo/readNovel',(req,res)=>{
+	let sql = `SELECT * FROM section INNER JOIN books on section.bid=books.bid where  section.sid=${readSid} AND  section.status=1;`
+	conn.query(sql,(err,result)=>{
+		if(err){
+			console.log(err);
+			return;
+		}
+		// 把从数据库查询到的该用户的信息保存并传给个人页面进行渲染
+		let data={};
+		data.books=result;
+		console.log(data.books);
+		res.render('user/readNovel',data);
+})
+});
 module.exports = router;
