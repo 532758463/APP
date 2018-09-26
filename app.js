@@ -20,17 +20,18 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(cookieParser(secret));
 
 //
-app.engine('html',ejs.renderFile);
-app.set('view engine','html');
-app.set('views','./views');
+app.engine('html', ejs.renderFile);
+app.set('view engine', 'html');
+app.set('views', './views');
+
 
 //
 global.conn = mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'jian5802',
-    port:3306,
-    database:'novelapp'
+    host: 'localhost',
+    user: 'root',
+    password: 'jian5802',
+    port: 3306,
+    database: 'novelapp'
 });
 conn.connect();
 

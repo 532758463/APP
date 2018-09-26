@@ -1,29 +1,42 @@
-window.onload=function(){
+$(function(){
 
-    // 上传头像
-    let img = document.querySelector('#images');
-    //当选择文件时，value值改变会触发change事件
-    img.onchange = function () {
-        //获取选中的文件信息：文件内容
-        console.log(this.files[0]);
-        let This = this;
-        //使用ajax发送图片到服务器
-        let xhr = new XMLHttpRequest();
-        xhr.open('POST', '/upload');
 
-        //创建一个表单数据对象
-        let formdata = new FormData();
-        formdata.append('images', This.files[0]); 
-        xhr.send(formdata);
-
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                let data = JSON.parse(xhr.responseText);
-                console.log(data);
-                document.querySelector('#img').src ="/"+data.path;
-                document.querySelector('#imgval').value ="/"+data.path;
-
+    //保存数据到数据库
+    $('#sub').click(function(){
+        let Time;
+        $.ajax({
+            url:'/user/register/newuser',
+            type:'post',
+            dataType:'json',
+            data:$('#register').serialize(),
+            success:function(result){
+                console.log(result);
+                if(result.r=='null'){
+                    layer.msg('账号/密码不能为空，请重新输入！', {
+                        time: 5000, //5s后自动关闭
+                        btn: ['OK']
+                      });
+                      return;
+                }
+                if(result.r == 'p_err'){
+                    layer.msg('密码不一致，请重新核对！', {
+                        time: 5000, //5s后自动关闭
+                        btn: ['OK']
+                      });
+                      return;
+                }
+                if(result.r=='ok'){
+                    layer.msg('恭喜注册成功，5秒后自动返回登录界面！', {
+                        time: 5000, //5s后自动关闭
+                        btn: ['OK']
+                      });
+                    Time = setTimeout(function(){
+                        window.location.href = '/user/login';
+                    },5000);
+                }
             }
-        }
-    }
-}
+        });
+        clearTimeout(Time);
+        return false;
+    });
+});

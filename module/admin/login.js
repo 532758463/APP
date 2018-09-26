@@ -38,6 +38,8 @@ router.post('/', (req, res) => {
         //保存session信息
         req.session.aid = result[0].aid;
         req.session.aname = result[0].aname;
+        
+        
         //更新状态
         let sql = 'UPDATE admin SET atime = ? WHERE aid = ?';
         conn.query(sql, [new Date().toLocaleString(), result[0].aid], (err, result) => {
