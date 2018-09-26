@@ -34,7 +34,7 @@
                 <dl class="layui-nav-child">
                     <dd><a href="/person/info" uid="<%=i.uid%>" id="p_info">个人信息</a></dd>
                     <dd><a href="/person/homepage">我的主页</a></dd>
-                    <dd><a href="javascript:;">退出</a></dd>
+                    <dd><a href="/">退出</a></dd>
                 </dl>
             </li>
         </ul>
@@ -136,14 +136,15 @@
                 </div>
                 <div class="layui-col-md3" id="lastinfo">
                     <h3>我的书单</h3>
-                    <a href="person/homepage"> <b>0</b> 个关注</a>
+                    <a href=""> <b>0</b> 个关注</a>
                     <hr>
-                    <a href="" class="blue">立即查看</a>
+                    <a href="/person/homepage" class="blue">立即查看</a>
 
                 </div>
             </div>
             <!-- </div> -->
         </div>
+        <!-- 右下 -->
         <div class="reward">
             <table class="layui-table" lay-skin="line">
                 <colgroup>
@@ -213,6 +214,7 @@
 
     </div>
     <% } %>
+    
     <div class="layui-footer footer info_foot">
         <!-- 底部固定区域 -->
         <p> © 2018 - 火柴小说网 - 火柴 - 蜀ICP-201800686 联系：1526659463</p>

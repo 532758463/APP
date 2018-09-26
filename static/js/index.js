@@ -40,7 +40,8 @@ $(function () {
       dataType: 'JSON',
       data: $('#forminfo').serialize(),
       success: function (result) {
-        console.log(result);
+        window.location.href='/user';
+        // console.log(result);
       }
     })
   })
@@ -57,7 +58,7 @@ $(function () {
         uimg: uimg
       },
       success: function (result) {
-        window.location.reload();
+        window.location.href='/user';
       }
     })
   })
@@ -106,6 +107,10 @@ $(function () {
       }
     })
   })
+
+
+
+
 
 
   // 分页
