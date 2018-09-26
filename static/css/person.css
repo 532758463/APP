@@ -361,9 +361,20 @@
     /* line-height: 186px; */
 }
 
+/* 我的书架--推荐书的hover样式 */
+.book_recomm li:hover .recmd-commet {
+    display: block;
+}
+
+.mycollection col{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 /* 首页 */
 .home-content {
-    color: #3e3d43;
+    color: #3e3d43; 
 }
 
 .qdp-content {

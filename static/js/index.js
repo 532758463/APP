@@ -107,12 +107,18 @@ $(function () {
     })
   })
 
-  // 我的书架--推荐书的hover样式
-  $(".book_recomm img").hover(function () {
-    console.log(999);
-    $(this).prev().stop().css("display", "block");
-  }, function () {
-    $(this).prev().stop().css("display", "none");
-  })
+
+  // 分页
+  // layui.use('laypage', function(){
+  //   var count=$("#colpage").attr('count');
+  //   var laypage = layui.laypage;
+  //   laypage.render({
+  //     elem: 'colpage', //注意，这里的 test1 是 ID，不用加 # 号
+  //     count: count, //数据总数，从服务端得到
+  //     limit:3
+
+  //   });
+  // });
+ 
 
 })

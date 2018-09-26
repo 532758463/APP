@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>个人中心-火柴阅读</title>
+    <title>我的书架-个人中心-火柴阅读</title>
     <link rel="stylesheet" href="/layui/css/layui.css">
+    <!-- <link rel="stylesheet" href="/static/build/layui.css" media="all"> -->
     <link rel="stylesheet" href="/css/person.css">
 </head>
 
@@ -75,14 +76,14 @@
             </div>
         </div>
         <!-- 收藏 -->
-
         <h2 class="shelf-title" id='mycollect'>我的收藏 </h2>
-        <table class="layui-table">
+        <div id="colpage" count="<%=col_list.length%>"></div>
+        <table class="layui-table mycollection">
             <colgroup>
                 <col width="200">
                 <col width="200">
                 <col width="200">
-                <col>
+                <col width="400">
                 <col width="200">
             </colgroup>
             <thead>
@@ -117,9 +118,16 @@
                 <% }%>
             </tbody>
         </table>
+
     </div>
 
     <% } %>
+    <!-- <div class="layui-footer footer"> -->
+        <!-- 底部固定区域 -->
+        <!-- <p> © 2018 - 火柴小说网 - 火柴 - 蜀ICP-201800686 联系：1526659463</p>
+        <p>请所有作者发布作品时务必遵守国家互联网信息管理办法规定，一经发现违规违纪，即作删除！</p>
+        <p>本站所收录作品、社区话题、书库评论及本站所做之广告均属其个人行为，与本站立场无关</p>
+    </div> -->
 
     <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="/layui/layui.all.js"></script>
